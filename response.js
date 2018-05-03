@@ -40,8 +40,6 @@ UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
         Log.debug(e + " At:" + e.lineNumber);
     }
 };
-
-DB.createDir();
 const preMsg = {}; //도배 방지용 객체
 var admin = ["불여우", "AMD TR™", "rgb", "K'romium", "케이시", "DEBUG$MODE*NAME+"]
 var enkey = "thebestfirefoxintheworld"
