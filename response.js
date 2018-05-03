@@ -72,15 +72,15 @@ DB.createDir();
 const preMsg = {}; //도배 방지용 객체
 var admin = ["불여우", "AMD TR™", "rgb", "K'romium", "케이시", "DEBUG$MODE*NAME+"]
 var enkey = "thebestfirefoxintheworld"
-function copyFileFromWeb() {
+function copyFileFromWeb(url, path) {
     try {
-        var url = new java.net.URL("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js");
+        var url = new java.net.URL(url);
         var con = url.openConnection();
         if(con != null) {
             con.setConnectTimeout(5000);
             con.setUseCaches(false);
             var bis = new java.io.BufferedInputStream(con.getInputStream());
-            var file = new java.io.File(sdcard+"kbot/response.js");
+            var file = new java.io.File(path);
             var fos = new java.io.FileOutputStream(file);
             var bos = new java.io.BufferedOutputStream(fos);
             var buf;
@@ -130,7 +130,7 @@ if(admin.indexOf(sender)>-1) {
 	}				
 		if (msg == "!업데이트") {
 				replier.reply("다운 중...")
-			function copyFileFromWeb()
+			function copyFileFromWeb("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js" , sdcard+"/kbot/response.js")
 			replier.reply("리로드 중...")
 				Api.reload()
 			replier.reply("업데이트 성공!")
