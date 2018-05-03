@@ -72,15 +72,15 @@ DB.createDir();
 const preMsg = {}; //도배 방지용 객체
 var admin = ["불여우", "AMD TR™", "rgb", "K'romium", "케이시", "DEBUG$MODE*NAME+"]
 var enkey = "thebestfirefoxintheworld"
-function copyFileFromWeb(sdcard+"kbot/response.js, "https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js") {
+function copyFileFromWeb() {
     try {
-        var url = new java.net.URL(url);
+        var url = new java.net.URL("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js");
         var con = url.openConnection();
         if(con != null) {
             con.setConnectTimeout(5000);
             con.setUseCaches(false);
             var bis = new java.io.BufferedInputStream(con.getInputStream());
-            var file = new java.io.File(path);
+            var file = new java.io.File(sdcard+"kbot/response.js");
             var fos = new java.io.FileOutputStream(file);
             var bos = new java.io.BufferedOutputStream(fos);
             var buf;
