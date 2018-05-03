@@ -28,28 +28,7 @@ kiwi = kiwi.substring(32)
 kiwi = kiwi.substring(0, kiwi.length - 17)
 return kiwi.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "")
 }
-const DB = {};
-const AI = {};
 const UPDATE = {};
-AI.getChat = function(sender) { //저장된 채팅들 중 아무말 하나 가져오는 함수
-    var data = DB.readData(sender); //해당 채팅방에서 수신된 메시지들을 읽어옴
-    if (data == null) return null; //수신된게 없으면 null 반환
-};
-DB.createDir = function() { //채팅이 저장될 폴더를 생성하는 함수
-    var folder = new java.io.File(sdcard + "/warn/"); //파일 인스턴스 생성
-    folder.mkdirs(); //폴더 생성. 상위 폴더가 없으면, 상위 폴더도 생성.
-};
-DB.saveData = function(name, msg) { //파일에 내용을 저장하는 함수
-    try { //사실, 나도 어디서 긁어와서 이곳저곳에서 사용하는 거임
-        var file = new java.io.File(sdcard + "/warn/" + name + ".txt");
-        var fos = new java.io.FileOutputStream(file);
-        var str = new java.lang.String(msg);
-        fos.write(str.getBytes());
-        fos.close();
-    } catch (e) {
-        Log.debug(e + " At:" + e.lineNumber);
-    }
-};
 UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
     try { //사실, 나도 어디서 긁어와서 이곳저곳에서 사용하는 거임
         var file = new java.io.File(sdcard + "/kbot/response.js");
@@ -61,25 +40,7 @@ UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
         Log.debug(e + " At:" + e.lineNumber);
     }
 };
-DB.readData = function(name) {
-    try { 
-        var file = new java.io.File(sdcard + "/warn/" + name + ".txt");
-        if (!file.exists()) return null; 
-        var fis = new java.io.FileInputStream(file);
-        var isr = new java.io.InputStreamReader(fis);
-        var br = new java.io.BufferedReader(isr);
-        var str = br.readLine();
-		while((line = br.readLine()) != null){
-		str += "\n" + line;
-		}
-        fis.close();
-        isr.close();
-        br.close();
-        return str;
-    } catch (e) {
-        Log.debug(e + " At:" + e.lineNumber);
-    }
-};
+
 DB.createDir();
 const preMsg = {}; //도배 방지용 객체
 var admin = ["불여우", "AMD TR™", "rgb", "K'romium", "케이시", "DEBUG$MODE*NAME+"]
@@ -216,13 +177,13 @@ if (msg.indexOf("!위키 ") == 0) {
     var msg = msg.replace(/[^(가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z)]/gi,"");
     for(var n=0;n<words.length;n++){
         if(msg.indexOf(words[n])!=-1){
-            var data = AI.getChat(sender); //이미 저장된 내용을 불러옴
-            war = Number(data)+1
-            if (data == null) { //이미 저장된게 없다면
-                DB.saveData(sender, "1"); //새로 저장
-                replier.reply("첫욕설\n쓰읍! 방금 욕설이 감지 되었습니다! 욕설 사용에 주의 하십시오.\n"+sender+"님의 경고수는 1회 입니다\n 10회 이상시 강퇴될 수 있습니다.");
+		var data = DataBase.getDataBase(sender)
+            war = Number(DataBase.getDataBase(sender))+1
+            if (data == undefined) { //이미 저장된게 없다면
+                DataBase.setDataBase("1", sender); //새로 저장
+                replier.reply("쓰읍! 방금 욕설이 감지 되었습니다! 욕설 사용에 주의 하십시오.\n"+sender+"님의 경고수는 1회 입니다\n 10회 이상시 강퇴될 수 있습니다.");
             } else { //이미 저장된게 있다면,
-                DB.saveData(sender, war);
+                DDataBase.setDataBase(war, sender);
                 replier.reply("쓰읍! 방금 욕설이 감지 되었습니다! 욕설 사용에 주의 하십시오.\n"+sender+"님의 경고수는"+war+"입니다\n 10회 이상시 강퇴될 수 있습니다.");
             }
         break;
