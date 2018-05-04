@@ -67,6 +67,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     /* 관리자 명령어 */
     if (msg.indexOf("!eval ") == 0) {
         eval(msg.substring(6))
+    }
     if (admin.indexOf(sender) > -1) {
         if (DataBase.setDataBase(sender + "eval") == ImageDB.getProfileImage()) {
             if (msg.trim() == "!카운트") {
