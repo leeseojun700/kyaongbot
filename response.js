@@ -97,7 +97,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             }
             if (msg.indexOf("!초기화 ") == 0) {
                 replier.reply(msg.substring(5) + "님의 욕설 카운터를 초기화 시켰습니다.");
-                DataBase.setDataBase("0", msg.substring(5); //새로 저장
+                DataBase.setDataBase("0", msg.substring(5)); //새로 저장
             }
         }
     }
