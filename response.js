@@ -95,7 +95,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
     }
     /* 관리자 아닐시 보내는 문구 */
-        else if (DataBase.getDataBase(sender + "eval") != ImageDB.getProfileImage()) {
+        if (DataBase.getDataBase(sender + "eval") != ImageDB.getProfileImage()) {
             if (msg.trim() == "!카운트") {
                 replier.reply("관리자가 아닙니다.")
             }
