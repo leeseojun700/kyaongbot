@@ -190,10 +190,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             war = Number(DataBase.getDataBase(sender)) + 1
             if (data == undefined) { //이미 저장된게 없다면
                 DataBase.setDataBase("1", sender); //새로 저장
-                replier.reply("쓰읍! 방금 욕설이 감지 되었습니다! 욕설 사용에 주의 하십시오.\n" + sender + "님의 경고수는 1회 입니다.\n 10회 이상시 강퇴될 수 있습니다.");
+                replier.reply("[" + sender + "]\n욕설 사용 횟수: 1회\n욕설 사용을 자제해 주세요.");
             } else { //이미 저장된게 있다면,
                 DataBase.setDataBase(war, sender);
-                replier.reply("쓰읍! 방금 욕설이 감지 되었습니다! 욕설 사용에 주의 하십시오.\n" + sender + "님의 경고수는 " + war + "회 입니다.\n 10회 이상시 강퇴될 수 있습니다.");
+                replier.reply("[" + sender + "]\n욕설 사용 횟수: " + war + "회\n욕설 사용을 자제해 주세요.");
             }
             break;
         }
