@@ -95,6 +95,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 replier.reply(sender + "님의 욕설 카운터를 초기화 시켰습니다.");
                 DataBase.setDataBase("0", sender); //새로 저장
             }
+            if (msg.indexOf("!초기화 ") {
+                replier.reply(msg.substring(5) + "님의 욕설 카운터를 초기화 시켰습니다.");
+                DataBase.setDataBase("0", msg.substring(5); //새로 저장
+            }
         }
     }
     /* 관리자 아닐시 보내는 문구 */
