@@ -69,7 +69,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         eval(msg.substring(6))
     }
     if (admin.indexOf(sender) > -1) {
-        if (DataBase.getDataBase(sender + "eval") == ImageDB.getProfileImage()) {
+        if (admin.indexOf(sender) > -1) {	
             if (msg.trim() == "!카운트") {
                 replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
             }
@@ -95,7 +95,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
     }
     /* 관리자 아닐시 보내는 문구 */
-        else if (DataBase.getDataBase(sender + "eval") != ImageDB.getProfileImage()) {
+    else if (admin.indexOf(sender) == -1) {	
             if (msg.trim() == "!카운트") {
                 replier.reply("관리자가 아닙니다.")
             }
