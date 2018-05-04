@@ -53,7 +53,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         return; //도배로 간주하고 response 함수 종료
     }
     preMsg[room] = msg; //수신된 채팅 내용 저장
-    /* 공지 카운터 */
 		var timea = new Date().getTime();
 	    if (count[room] === undefined) { //한 번도 수신된 적이 없는 경우,
         count[room] = 1; //수신된 횟수에 1 저장
@@ -64,57 +63,52 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         replier.reply("[공지]\n<욕설>\n과도한 <도배 / 방주제 관련없는 이야기>\n<사진, 특히 채팅 캡처 도배>\n<싸가지없는 말투>\n과도한 <친목 / 반말>\n<개념없는 행동>\n<크랙 공유>\n<기타 대한민국 법에 저촉되는 행위>\n시\관리자에게 제재받을수 있습니다.\n●디스코드: goo.gl/MXKJSd\n●방장 견적상담: goo.gl/gBvwZk\n●공식업체: compury.com\n●신고/이의제기: goo.gl/r6Bc5t\n모바일 메뉴열고 우측상단\nPC 채팅창 방제아래 상단바\n♡->♥ 하트 보탁 드려요"); //채팅 보내고,
         count[room] = 0; //0으로 초기화
     } 
-    }
-    /* 관리자 명령어*/
-    if (admin.indexOf(sender) > -1) {
-        imgp = DataBase.getDataBase(sender + "eval")
-        img = ImageDB.getProfileImage()
-        if (imgp == img) {
-            if (msg.trim() == "!카운트") {
-                replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
-            }
-            if (msg == "!리로드") {
-                Api.reload()
-                replier.reply("리로드 되었습니다!")
-            }
-            if (msg == "!업데이트") {
-                replier.reply("다운 중...")
-                UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
-                replier.reply("리로드 중...")
-                Api.reload()
-                replier.reply("업데이트 성공!")
-            }
-            if (msg == "!프사") {
-                var img = ImageDB.getProfileImage();
-                replier.reply(img);
-            }
-            if (msg == "!초기화") {
-                replier.reply(sender + "님의 욕설 카운터를 초기화 시켰습니다.");
-                DataBase.setDataBase("0", sender); //새로 저장
-            }
-        }
-    }
-    else if (admin.indexOf(sender) == -1) {
-        imgp = DataBase.getDataBase(sender + "eval")
-        img = ImageDB.getProfileImage()
-        if (imgp == !img) {
-            if (msg.trim() == "!카운트") {
-                replier.reply("관리자가 아닙니다.")
-            }
-            if (msg == "!리로드") {
-                replier.reply("관리자가 아닙니다.")
-            }
-            if (msg == "!업데이트") {
-                replier.reply("관리자가 아닙니다.")
-            }
-            if (msg == "!프사") {
-                replier.reply("관리자가 아닙니다.")
-            }
-            if (msg == "!초기화") {
-                replier.reply("관리자가 아닙니다.")
-            }
-        }
-    }
+			if (msg == "!크로미") {
+   replier.reply("아 그 노란색 동그라미?");
+}	
+if(admin.indexOf(sender)>-1) {	
+	if(msg.trim()=="!카운트"){
+		replier.reply(count[room]+"/300\n캬옹봇의 챗은 계산하지 않음.")
+		}    
+		if(msg == "!리로드")
+	{
+	Api.reload()
+	replier.reply("리로드 되었습니다!")
+	}				
+		if (msg == "!업데이트") {
+				replier.reply("다운 중...")		
+			UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
+			replier.reply("리로드 중...")
+				Api.reload()
+			replier.reply("업데이트 성공!")
+		}
+		if (msg == "!프사") {
+   var img = ImageDB.getProfileImage();
+   replier.reply(img);
+}
+if (msg == "!초기화"){
+	   replier.reply(sender+"님의 욕설 카운터를 초기화 시켰습니다.");
+	    DataBase.setDataBase("0", sender); //새로 저장
+}}
+else if(admin.indexOf(sender)==-1) {
+	if(msg.trim()=="!카운트"){
+	replier.reply("관리자가 아닙니다.")
+	}
+	if(msg == "!리로드")
+	{
+	replier.reply("관리자가 아닙니다.")
+	}
+		if(msg == "!업데이트")
+	{
+	replier.reply("관리자가 아닙니다.")
+	}
+		if (msg == "!프사") {
+		replier.reply("관리자가 아닙니다.")
+	}
+			if (msg == "!초기화") {
+		replier.reply("관리자가 아닙니다.")
+	}
+}
 if(msg.trim()=="!실검"){
 var 실검=[];
 for(var abab=1;abab<21;abab++){
