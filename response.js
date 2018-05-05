@@ -143,7 +143,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     }
     if (msg == "!차트") {//!차트면
         var charts = [];
-        for (var i = 1; i < 11; i++) {
+        for (var i = 1; i < 51i++) {
             chart = Utils.getWebText("http://m.music.naver.com/listen/top100.nhn?domain=DOMESTIC")
             var a = chart.split("<span class=\"rank\">")[i].split("</span>")[0];
             var b = chart.split("<strong class=\"tit\"> ")[i].split("</strong>")[0];
