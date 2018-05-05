@@ -1,4 +1,3 @@
-업데이트 내역
 /*
  - 이 소스에는 GPL 3.0이 적용되어있습니다.
  <one line to give the program's name and a brief idea of what it does.>
