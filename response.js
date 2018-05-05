@@ -163,7 +163,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         for (var i = 1; i <= 9; i++) { //반복
             vmlist.push(currency[i].split('"')[0] + " : " + last[i].split('"')[0]); //변수 생성
         }
-        replier.reply(vmlist.join("원\n")+"원); // 보내기
+        replier.reply(vmlist.join("원\n")+"원"); // 보내기
     }
 
     try {
