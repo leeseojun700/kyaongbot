@@ -70,10 +70,13 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     if (profile == img) {
         if (msg.indexOf("!eval ") == 0) {
             eval(msg.substring(6))
-	}}
+		}
+	}
 	else if (profile != img){
+		        if (msg.indexOf("!eval ") == 0) {
                 replier.reply("관리자가 아닙니다.")
-        }
+		}
+	}
     if (admin.indexOf(sender) > -1) {
         if (admin.indexOf(sender) > -1) {
             if (msg.trim() == "!카운트") {
