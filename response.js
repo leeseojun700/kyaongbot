@@ -1,3 +1,4 @@
+업데이트 내역
 /*
  - 이 소스에는 GPL 3.0이 적용되어있습니다.
  <one line to give the program's name and a brief idea of what it does.>
@@ -66,7 +67,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         count[room] = 0; //0으로 초기화
     }
     /* 관리자 명령어 */
-    if (profile = ImageDB) {
+	var img = ImageDB.getProfileImage();
+    if (profile = img) {
         if (msg.indexOf("!eval ") == 0) {
             eval(msg.substring(6))
         }
