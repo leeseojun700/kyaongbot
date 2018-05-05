@@ -66,7 +66,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         count[room] = 0; //0으로 초기화
     }
     /* 관리자 명령어 */
-    if (profile = ImageDB.getProfileImage) {
+    if (profile = ImageDB) {
         if (msg.indexOf("!eval ") == 0) {
             eval(msg.substring(6))
         }
