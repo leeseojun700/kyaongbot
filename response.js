@@ -71,7 +71,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         if (msg.indexOf("!eval ") == 0) {
             eval(msg.substring(6))
         }
-    }
+	else if (profile != img){
+                replier.reply("관리자가 아닙니다.")
+        }
     if (admin.indexOf(sender) > -1) {
         if (admin.indexOf(sender) > -1) {
             if (msg.trim() == "!카운트") {
