@@ -83,7 +83,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (msg == "!업데이트") {
                 replier.reply("다운 중...")
                 UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
-                replier.reply(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js));
+                replier.reply("업데이트 내역\n" + getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
                 replier.reply("리로드 중...")
                 Api.reload()
                 replier.reply("업데이트 성공!")
