@@ -73,7 +73,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
 		}
 	}
 	else if (profile != img){
-		        if (msg.indexOf("!eval ") == 0) {
+		        if (msg.indexOf("!eval") == 0) {
                 replier.reply("관리자가 아닙니다.")
 		}
 	}
