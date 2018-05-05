@@ -67,7 +67,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     }
     /* 관리자 명령어 */
 	var img = ImageDB.getProfileImage();
-    if (profile =+ img) {
+    if (profile == img) {
         if (msg.indexOf("!eval ") == 0) {
             eval(msg.substring(6))
         }
