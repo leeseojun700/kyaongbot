@@ -62,7 +62,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         count[room]++; //1증가
     }
     if (count[room] == 300) { //200번 다 채우면,
-        replier.reply("[공지]\n<욕설>\n과도한 <도배 / 방주제 관련없는 이야기>\n<사진, 특히 채팅 캡처 도배>\n<싸가지없는 말투>\n과도한 <친목 / 반말>\n<개념없는 행동>\n<크랙 공유>\n<기타 대한민국 법에 저촉되는 행위>\n시\관리자에게 제재받을수 있습니다.\n●디스코드: goo.gl/MXKJSd\n●방장 견적상담: goo.gl/gBvwZk\n●공식업체: compury.com\n●신고/이의제기: goo.gl/r6Bc5t\n모바일 메뉴열고 우측상단\nPC 채팅창 방제아래 상단바\n♡->♥ 하트 보탁 드려요"); //채팅 보내고,
+        replier.reply("[공지]\n<욕설>\n과도한 <도배 / 방주제 관련없는 이야기>\n<사진, 특히 채팅 캡처 도배>\n<싸가지없는 말투>\n과도한 <친목 / 반말>\n<개념없는 행동>\n<크랙 공유>\n<기타 대한민국 법에 저촉되는 행위>\n시\관리자에게 제재받을수 있습니다.\n●디스코드: goo.gl/MXKJSd\n●방장 견적상담: goo.gl/gBvwZk\n●공식업체: compury.com\n●신고/이의제기: goo.gl/r6Bc5t\n모바일 메뉴열고 우측상단\nPC 채팅창 방제아래 상단바\n♡->♥ 하트 부탁 드려요"); //채팅 보내고,
         count[room] = 0; //0으로 초기화
     }
     /* 관리자 명령어 */
