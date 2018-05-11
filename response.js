@@ -203,13 +203,13 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     if (msg == "!반응속도") {
         replier.reply("캬옹봇의 반응속도는" + timec + "초입니다.")
     }
+    for (var n = 0; n < notwords.length; n++) {
+        if (msg.indexOf(notwords[n]) != -1) {
+            return;
+        }
     var msg = msg.replace(/[^(가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z)]/gi, "");
     for (var n = 0; n < words.length; n++) {
         if (msg.indexOf(words[n]) != -1) {
-            for (var n = 0; n < notwords.length; n++) {
-                if (msg.indexOf(notwords[n]) != -1) {
-                    break;
-                }
             var data = DataBase.getDataBase(sender)
             war = Number(DataBase.getDataBase(sender)) + 1
             if (data == undefined) { //이미 저장된게 없다면
