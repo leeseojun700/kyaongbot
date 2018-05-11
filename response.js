@@ -90,8 +90,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (msg.trim() == "!카운터") {
                 replier.reply(count[room+"all"] + "회")
 }
-	    if (msg.trim() == "!299") {
-		count[room+"all"] = 299; //수신된 횟수에 299 저장
+	    if (msg.trim() == "!299") {//임시, 추후 대체 
+		count[room] = 299; //수신된 횟수에 299 저장
                 replier.reply("적용")
 }
             if (msg == "!리로드") {
