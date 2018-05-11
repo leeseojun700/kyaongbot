@@ -89,7 +89,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
             }
             if (msg.trim() == "!카운터") {
-                replier.reply(Number(DataBase.getDataBase(room))] + "회")
+                replier.reply(Number(DataBase.getDataBase(room)) + "회")
 }
 	    if (msg.trim() == "!299") {//임시, 추후 대체 
 		var count[room] = 299; //수신된 횟수에 299 저장
@@ -216,21 +216,24 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     var msg = msg.replace(/[^(가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z)]/gi, "");
     for (var n = 0; n < words.length; n++) {
 	if (msg.indexOf(notwords[n]) != -1) {
-	    replier.reply("");
+        break;
 	}
 	else {
-	    if (msg.indexOf(words[n]) != -1) {
-            var data = DataBase.getDataBase(sender)
-            war = Number(DataBase.getDataBase(sender)) + 1
-            if (data == undefined) { //이미 저장된게 없다면
-                DataBase.setDataBase("1", sender); //새로 저장
-                replier.reply("[" + sender + "]\n욕설 사용 횟수: 1회\n욕설 사용을 자제해 주세요.");
-            } else { //이미 저장된게 있다면,
-                DataBase.setDataBase(war, sender);
-                replier.reply("[" + sender + "]\n욕설 사용 횟수: " + war + "회\n욕설 사용을 자제해 주세요.");
+        for (var n = 0; n < words.length; n++) {
+            if (msg.indexOf(words[n]) != -1) {
+                if (msg.indexOf(notwords[n]) != -1) {
+                    break;
+                }
+                var data = DataBase.getDataBase(sender)
+                war = Number(DataBase.getDataBase(sender)) + 1
+                if (data == undefined) { //이미 저장된게 없다면
+                    DataBase.setDataBase("1", sender); //새로 저장
+                    replier.reply("[" + sender + "]\n욕설 사용 횟수: 1회\n욕설 사용을 자제해 주세요.");
+                } else { //이미 저장된게 있다면,
+                    DataBase.setDataBase(war, sender);
+                    replier.reply("[" + sender + "]\n욕설 사용 횟수: " + war + "회\n욕설 사용을 자제해 주세요.");
+                }
+                break;
             }
-            break;
-	  }
-	}
+        }
     }
-}
