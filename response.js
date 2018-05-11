@@ -92,7 +92,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 replier.reply(Number(DataBase.getDataBase(room)) + "회")
 }
 	    if (msg.trim() == "!299") {//임시, 추후 대체 
-		var count[room] = 299; //수신된 횟수에 299 저장
+	     count[room] = 299; //수신된 횟수에 299 저장
                 replier.reply("적용")
 }
             if (msg == "!리로드") {
