@@ -13,6 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
+    var only = false;
     const count = {};
     const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
     function getHtml(text) {
@@ -51,7 +52,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     try {
         if (room == "불여우") {
             if (msg == "!프사갱신") {
-                DataBase.setDataBase(ImageDB.getProfileImage(), "image")
+                DataBase.setDataBase(ImageDB.getProfileImage(), image)
+                replier.reply("프사갱신 완료!"+image)
             }
         }
         msg = msg.trim(); //이거 왜있는지 모르면 골롬
@@ -233,9 +235,13 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             }
         }
     }
+    이 에러도 잡아보시지!
     catch (e) {
         var error = true;
-        replier.reply("오류발생!\n에러 메시지: " + e.message)
+        if (only == false) {
+            replier.reply("오류발생!\n에러 메시지: " + e.message)
+            var only = true;
+        }
     }
 }
 
