@@ -232,7 +232,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 break;
             }
         }
-    }
+    }}
     catch (e) {
         var error = true;
         replier.reply("오류발생!\n에러 메시지: " + e.message)
