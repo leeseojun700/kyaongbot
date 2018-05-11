@@ -91,15 +91,11 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (msg.trim() == "!카운터") {
                 replier.reply(Number(DataBase.getDataBase(room)) + "회")
 }
-	    if (msg.trim() == "!299") {//임시, 추후 대체 
-	     count[room] = 299; //수신된 횟수에 299 저장
-                replier.reply("적용")
-}
             if (msg == "!리로드") {
                 Api.reload()
                 replier.reply("리로드 되었습니다!")
             }
-            if (msg == "!업데이트") {
+            if (msg == "!업데이트") {   
                 replier.reply("다운 중...")
                 UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
                 replier.reply("업데이트 내역\n" + getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
