@@ -88,7 +88,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
             }
             if (msg.trim() == "!카운터") {
-                replier.reply(count[room+"all"] + "번 이방의 채팅량 분석")
+                replier.reply("리로드 이후 기록된 이 방의 채팅 수\n" + count[room+"all"] + "회")
 }
             if (msg == "!리로드") {
                 Api.reload()
