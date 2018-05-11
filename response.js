@@ -69,17 +69,17 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         count[room] = 0; //0으로 초기화
     }
     /* 관리자 명령어 */
-	var img = ImageDB.getProfileImage();
+    var img = ImageDB.getProfileImage();
     if (profile == img) {
         if (msg.indexOf("!eval ") == 0) {
             eval(msg.substring(6))
-		}
-	}
-	else if (profile != img){
-		        if (msg.indexOf("!eval") == 0) {
-                replier.reply("관리자가 아닙니다.")
-		}
-	}
+        }
+    }
+    else if (profile != img) {
+        if (msg.indexOf("!eval") == 0) {
+            replier.reply("관리자가 아닙니다.")
+        }
+    }
     if (admin.indexOf(sender) > -1) {
         if (admin.indexOf(sender) > -1) {
             if (msg.trim() == "!카운트") {
@@ -175,7 +175,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         for (var i = 1; i <= 9; i++) { //반복
             vmlist.push(currency[i].split('"')[0] + " : " + last[i].split('"')[0]); //변수 생성
         }
-        replier.reply(vmlist.join("원\n")+"원"); // 보내기
+        replier.reply(vmlist.join("원\n") + "원"); // 보내기
     }
 
     try {
@@ -207,6 +207,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         if (msg.indexOf(notwords[n]) != -1) {
             return;
         }
+    }
     var msg = msg.replace(/[^(가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z)]/gi, "");
     for (var n = 0; n < words.length; n++) {
         if (msg.indexOf(words[n]) != -1) {
