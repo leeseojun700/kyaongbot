@@ -218,7 +218,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (msg.indexOf(notwords[n]) != -1) {
                 return;
             }
-        }이에러도 잡아보시지!
+        }
         var msg = msg.replace(/[^(가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z)]/gi, "");
         for (var n = 0; n < words.length; n++) {
             if (msg.indexOf(words[n]) != -1) {
