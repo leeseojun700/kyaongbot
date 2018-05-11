@@ -57,7 +57,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
     /* 공지 카운터 */
     if (count[room] === undefined) { //한 번도 수신된 적이 없는 경우,
-        count[room] = 1; //수신된 횟수에 1 저장
+        count[room] = 295; //수신된 횟수에 1 저장
     } else { //아니면
         count[room]++; //1증가
     }
