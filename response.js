@@ -57,18 +57,18 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
     /* 공지 카운터 */
     if (count[room] === undefined) { //한 번도 수신된 적이 없는 경우,
-        count[room] = 1; //수신된 횟수에 1 저장
+       var count[room] = 1; //수신된 횟수에 1 저장
     } else { //아니면
-        count[room]++; //1증가
+       var count[room]++; //1증가
     }
     if (count[room] == 300) { //200번 다 채우면,
         replier.reply("<공지사항을 숙지해 주시기 바랍니다.>\n\n공지사항: goo.gl/iyP83B\n\n채팅/홍보 이벤트 진행중, 공지사항 참조해주세요!\n\n방장 카카오톡 id : rgbkakao\n\n공식업체: compury.com ('엘' 님)\n\n모바일 메뉴열고 우측상단\nPC 채팅창 방제아래 상단바\n♡->♥ 하트 부탁 드려요"); //채팅 보내고,
-        count[room] = 0; //0으로 초기화
+        var count[room] = 0; //0으로 초기화
     }
-    if (count[room+"all"] === undefined) { //한 번도 수신된 적이 없는 경우,
-        count[room+"all"] = 1; //수신된 횟수에 1 저장
+    if (DataBase.getDataBase(room) === undefined) { //한 번도 수신된 적이 없는 경우,
+        DataBase.setDataBase("1", room);; //수신된 횟수에 1 저장
     } else { //아니면
-        count[room+"all"]++; //1증가
+        DataBase.setDataBase(Number(DataBase.getDataBase(room))+1, sender);; //1증가
     }
     /* 관리자 명령어 */
 	var img = ImageDB.getProfileImage();
@@ -88,10 +88,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
             }
             if (msg.trim() == "!카운터") {
-                replier.reply(count[room+"all"] + "회")
+                replier.reply(Number(DataBase.getDataBase(room))] + "회")
 }
 	    if (msg.trim() == "!299") {//임시, 추후 대체 
-		count[room] = 299; //수신된 횟수에 299 저장
+		var count[room] = 299; //수신된 횟수에 299 저장
                 replier.reply("적용")
 }
             if (msg == "!리로드") {
