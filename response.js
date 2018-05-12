@@ -132,7 +132,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     }
                     DataBase.setDataBase(getTimeStamp(), "timenew");
                     replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + Number(DataBase.getDataBase(room)) + "회 기록됨");
-                    replier.reply(채팅카운터 초기화!)
+                    replier.reply("채팅카운터 초기화!")
                     DataBase.setDataBase(0, room);
                 }
                 if (msg == "!리로드") {
