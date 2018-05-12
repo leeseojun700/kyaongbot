@@ -145,7 +145,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         if (msg == "!공지") {
             replier.reply(DataBase.getDataBase("공지"))
-            var count[room] = 299
+            count[room] = 299
         }
         if (msg.trim() == "!실검") { //!실검 이면
             var 실검 = [];
