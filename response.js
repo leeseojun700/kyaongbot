@@ -259,8 +259,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         var timeb = new Date().getTime();
         var timec = (timeb - timea)
-        if (msg == "!반응속도") {
-            replier.reply("캬옹봇의 반응속도는" + timec + "ms입니다.")
+        if (msg == "!응답속도") {
+            replier.reply("응답속도 : " + timec + "ms")
         }
         for (var n = 0; n < notwords.length; n++) {
             if (msg.indexOf(notwords[n]) != -1) {
