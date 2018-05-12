@@ -48,6 +48,7 @@ var words = ["쓰버", "10새", "10새기", "10새리", "10세리", "10쉐이", 
 var notwords = ["도시바", "에이씨벨"]
 var error = false;
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
+    var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
     try {
         if (room == "불여우") {
             if (msg == "!프사갱신") {
@@ -68,7 +69,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             return; //도배로 간주하고 response 함수 종료
         }
         preMsg[room] = msg; //수신된 채팅 내용 저장
-        var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
         /* 공지 카운터 */
         if (count[room] === undefined) { //한 번도 수신된 적이 없는 경우,
             count[room] = 1; //수신된 횟수에 1 저장
@@ -250,6 +250,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             first = 1;
         }
     }
+    var timeb = new Date().getTime();
 }
 
 
