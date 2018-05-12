@@ -104,7 +104,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     replier.reply(DataBase.getDataBase("timenew") + " ~\n\n" + Number(DataBase.getDataBase(room)) + "회")
                 }
                 if (msg.trim() == "!채팅카운터 리셋") {
-                    if (DataBase.getDataBase("timenew") != NaN) {
+                    if (DataBase.getDataBase("timenew") != null) {
                          DataBase.setdatabase(DataBase.getDataBase("timenew"), "timeold")
                     }
                     DataBase.setdatabase(new Date().getTime(), "timenew");
