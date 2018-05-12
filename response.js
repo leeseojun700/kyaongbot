@@ -107,7 +107,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     if (DataBase.getDataBase("timenew") != null) {
                          DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
                     }
-                    DataBase.setDataBase(new Date().getTime(), "timenew");
+                    DataBase.setDataBase(d.getYear() + "년 " + (d.getMonth() + 1) + "월 " + d.getDate + "일 " + d.getHours + ":" + d.getMinutes + ":" + d.getSeconds, "timenew");
                     replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n" + Number(DataBase.getDataBase(room)) + "회");
                     DataBase.setDataBase(0, room);
                 }
