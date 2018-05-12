@@ -101,18 +101,16 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
                 }
                 if (msg.trim() == "!채팅카운터") {
-                    replier.reply(DataBase.getDataBase(timenew) + " ~\br\br" + Number(DataBase.getDataBase(room)) + "회")
+                    replier.reply(DataBase.getDataBase(timenew) + " ~\n\n" + Number(DataBase.getDataBase(room)) + "회")
                 }
-             
                 if (msg.trim() == "!채팅카운터 리셋") {
                     if (DataBase.getDataBase(timenew) != NaN) {
                          DataBase.setdatabase(DataBase.getDataBase(timenew), timeold)
                     }
-                    DataBase.setdatabase(new Date().getTime(), timenew)
-                    replier.reply(DataBase.getDataBase(timeold) + "\br~\br" + DataBase.getDataBase(timenew) + "\br\br" + Number(DataBase.getDataBase(room)) + "회")
-                    DataBase.setDataBase(0, room)
+                    DataBase.setdatabase(new Date().getTime(), timenew);
+                    replier.reply(DataBase.getDataBase(timeold) + "\n~\n" + DataBase.getDataBase(timenew) + "\n\n" + Number(DataBase.getDataBase(room)) + "회");
+                    DataBase.setDataBase(0, room);
                 }
-             
                 if (msg == "!리로드") {
                     Api.reload()
                     replier.reply("리로드 되었습니다!")
