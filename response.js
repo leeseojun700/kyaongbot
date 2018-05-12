@@ -205,6 +205,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         } catch (e) {
             replier.reply("가사 정보가 없습니다. 다시 입력해보세요.");
         }
+        if (msg == hello) {
+            replier.reply(hello)
+        }
         /* 여기서 부턴 포함 확인하는거임 */
         if (msg.indexOf("!위키 ") == 0) {
             replier.reply(wiki(msg.substring(4)))
@@ -234,7 +237,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 break;
             }
         }
-        에러
     }
     catch (e) {
         if (first == 0) {
