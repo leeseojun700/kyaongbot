@@ -109,7 +109,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 if (msg == "!업데이트") {
                     replier.reply("다운 중...")
                     UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
-                    replier.reply("업데이트 내역\n" + getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
+                    replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim()); 
                     replier.reply("리로드 중...")
                     Api.reload()
                     if (error == false) {
