@@ -58,14 +58,17 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         msg = msg.trim(); //이거 왜있는지 모르면 골롬
         room = room.trim();
         sender = sender.trim();
+        /* 카운트 */
+        if (DataBase.getDataBase(room) == NaN) {
+            DataBase.setDataBase(0, room)
+        }
+        DataBase.setDataBase(Number(Number(DataBase.getDataBase(room))) + Number(1), room)
         /*도배 방지*/
         if (preMsg[room] == msg) { //채팅 내용이랑 직전에 수신된 채팅 내용이 같으면,
             return; //도배로 간주하고 response 함수 종료
         }
         preMsg[room] = msg; //수신된 채팅 내용 저장
         var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
-        /* 카운트 */
-        DataBase.setDataBase(Number(Number(DataBase.getDataBase(room))) + Number(1), room)
         /* 공지 카운터 */
         if (count[room] === undefined) { //한 번도 수신된 적이 없는 경우,
             count[room] = 1; //수신된 횟수에 1 저장
