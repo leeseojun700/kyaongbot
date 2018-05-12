@@ -109,7 +109,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                          DataBase.setdatabase(DataBase.getDataBase(timenew), timeold)
                     }
                     DataBase.setdatabase(new Date().getTime(), timenew)
-                    replier.reply(DataBase.getDataBase(timeold) + "\br~\br" + DataBase.getDataBase(timenew) + "\br\br" + Number(DataBase.getDataBase(room)) + "회"))
+                    replier.reply(DataBase.getDataBase(timeold) + "\br~\br" + DataBase.getDataBase(timenew) + "\br\br" + Number(DataBase.getDataBase(room)) + "회")
                     DataBase.setDataBase(0, room)
                 }
              
