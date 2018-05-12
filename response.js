@@ -16,6 +16,29 @@
 var first = 0;
 const count = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
+function getTimeStamp() {
+  var d = new Date();
+  var s =
+    leadingZeros(d.getFullYear(), 4) + '-' +
+    leadingZeros(d.getMonth() + 1, 2) + '-' +
+    leadingZeros(d.getDate(), 2) + ' ' +
+
+    leadingZeros(d.getHours(), 2) + ':' +
+    leadingZeros(d.getMinutes(), 2) + ':' +
+    leadingZeros(d.getSeconds(), 2);
+
+  return s;
+}
+function leadingZeros(n, digits) {
+  var zero = '';
+  n = n.toString();
+
+  if (n.length < digits) {
+    for (i = 0; i < digits - n.length; i++)
+      zero += '0';
+  }
+  return zero + n;
+}
 function getHtml(text) {
     var content = new java.io.ByteArrayOutputStream();
     android.net.http.AndroidHttpClient.newInstance("userAgent").execute(new org.apache.http.client.methods.HttpGet(text)).getEntity().writeTo(content);
@@ -107,8 +130,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     if (DataBase.getDataBase("timenew") != null) {
                          DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
                     }
-                    var d = new Date()
-                    DataBase.setDataBase(d.getYear() + "년 " + (d.getMonth() + 1) + "월 " + d.getDate + "일 " + d.getHours + ":" + d.getMinutes + ":" + d.getSeconds, "timenew");
+                    DataBase.setDataBase(getTimeStamp(), "timenew");
                     replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n" + Number(DataBase.getDataBase(room)) + "회");
                     DataBase.setDataBase(0, room);
                 }
