@@ -104,8 +104,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(0, daycounter)
         }
         DataBase.setDataBase(Number(Number(DataBase.getDataBase(daycounter))) + Number(1), daycounter)
-        if (DataBase.getDataBase(daycounter) == NaN) {
-            DataBase.setDataBase(0, daycounter)
+        if (DataBase.getDataBase(hourcounter) == NaN) {
+            DataBase.setDataBase(0, hourcounter)
         }
         DataBase.setDataBase(Number(Number(DataBase.getDataBase(hourcounter))) + Number(1), hourcounter)
         /*도배 방지*/
