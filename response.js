@@ -104,7 +104,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(0, daycounter)
         }
         DataBase.setDataBase(Number(Number(DataBase.getDataBase(daycounter))) + Number(1), daycounter)
-        if (DataBase.getDataBase(hourcounter) == NaN) {
+        if (DataBase.getDataBase(daycounter) == NaN) {
             DataBase.setDataBase(0, daycounter)
         }
         DataBase.setDataBase(Number(Number(DataBase.getDataBase(hourcounter))) + Number(1), hourcounter)
@@ -202,19 +202,19 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             }
         }
         if (new Date().getDate() != DataBase.getDataBase("countday")) {
-            DataBase.setDataBase(Number(DataBase.getDataBase(daycounter)), daycache);
+            DataBase.setDataBase(Number(DataBase.getDataBase(daycounter)), "daycache");
             replier.reply(ShortStamp1() + "\n지난 하루동안 올라온 채팅 수: " + Number(DataBase.getDataBase(daycounter) + "개");
             DataBase.setDataBase(0, daycounter);
-            DataBase.setDataBase(new Date().getDate(), "countday);
+            DataBase.setDataBase(new Date().getDate(), "countday");
             }
         if (new Date().getHours() != DataBase.getDataBase("counthour")) {
-            DataBase.setDataBase(Number(DataBase.getDataBase(hourcounter)), hourcache);
+            DataBase.setDataBase(Number(DataBase.getDataBase(hourcounter)), "hourcache");
             replier.reply("지난 한시간동안 올라온 채팅 수: " + Number(DataBase.getDataBase(hourcounter) + "개");
             DataBase.setDataBase(0, hourcounter);
-            DataBase.setDataBase(new Date().getHours(), "counthour);
+            DataBase.setDataBase(new Date().getHours(), "counthour");
             }
         if (msg == "!카운트") {
-            replier.reply("어제 하루" + DataBase.getDataBase(daycache) + "개,\n지난 한시간 " + DataBase.getDataBase(hourcache) + "개\n의 채팅이 올라옴")
+            replier.reply("어제 하루" + DataBase.getDataBase("daycache") + "개,\n지난 한시간 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
         }
         if (msg == "!공지") {
             replier.reply(DataBase.getDataBase("공지"))
