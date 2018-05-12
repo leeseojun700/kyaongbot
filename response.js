@@ -65,7 +65,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         preMsg[room] = msg; //수신된 채팅 내용 저장
         var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
         /* 카운트 */
-        DataBase.setDataBase(Number(DataBase.getDataBase(room)) + 1, room)
+        DataBase.setDataBase(Number(Number(DataBase.getDataBase(room))) + Number(1), room)
         /* 공지 카운터 */
         if (count[room] === undefined) { //한 번도 수신된 적이 없는 경우,
             count[room] = 1; //수신된 횟수에 1 저장
@@ -90,10 +90,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         if (admin.indexOf(sender) > -1) {
             if (admin.indexOf(sender) > -1) {
-                if (msg.trim() == "!카운트") {
+                if (msg.trim() == "!카운터") {
                     replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
                 }
-                if (msg.trim() == "!카운터") {
+                if (msg.trim() == "!카운트") {
                     replier.reply(Number(DataBase.getDataBase(room)) + "회")
                 }
                 if (msg == "!리로드") {
