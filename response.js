@@ -143,6 +143,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 replier.reply("관리자가 아닙니다.")
             }
         }
+        if (msg == "!공지") {
+            replier.reply(DataBase.getDataBase("공지"))
+            var count[room] = 299
+        }
         if (msg.trim() == "!실검") { //!실검 이면
             var 실검 = [];
             for (var abab = 1; abab < 21; abab++) {
