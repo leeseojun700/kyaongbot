@@ -129,7 +129,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         /* 관리자 아닐시 보내는 문구 */
         else if (admin.indexOf(sender) == -1) {
-            if (msg.trim() == "!카운트") {
+            if (msg == "!카운트") {
+                replier.reply("관리자가 아닙니다.")
+            }
+            if (msg == "!카운터") {
                 replier.reply("관리자가 아닙니다.")
             }
             if (msg == "!리로드") {
