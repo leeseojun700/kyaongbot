@@ -91,6 +91,14 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(0, room)
         }
         DataBase.setDataBase(Number(Number(DataBase.getDataBase(room))) + Number(1), room)
+        if (DataBase.getDataBase(daycounter) == NaN) {
+            DataBase.setDataBase(0, room)
+        }
+        DataBase.setDataBase(Number(Number(DataBase.getDataBase(daycounter))) + Number(1), daycounter)
+        if (DataBase.getDataBase(hourcounter) == NaN) {
+            DataBase.setDataBase(0, room)
+        }
+        DataBase.setDataBase(Number(Number(DataBase.getDataBase(hourcounter))) + Number(1), hourcounter)
         /*도배 방지*/
         if (preMsg[room] == msg) { //채팅 내용이랑 직전에 수신된 채팅 내용이 같으면,
             return; //도배로 간주하고 response 함수 종료
@@ -183,6 +191,17 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (msg == "!초기화") {
                 replier.reply("관리자가 아닙니다.")
             }
+        }
+        if (new Date().getDate() != DataBase.getDataBase("countday")) {
+            DataBase.setDataBase(Number(DataBase.getDataBase(daycounter)), daycache)
+            replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(daycounter))
+            DataBase.setDataBase(0, daycounter)
+        if (new Date().getHours() != DataBase.getDataBase("counthour")) {
+            DataBase.setDataBase(Number(DataBase.getDataBase(hourcounter)), hourcache)
+            replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(hourcounter))
+            DataBase.setDataBase(0, hourcounter)
+        if (msg == "!카운트") {
+            replier.reply("어제 하루 " + DataBase.getDataBase(daycache) + "개,\n지난 한시간 " + DataBase.getDataBase(hourcache) + "개\n의 채팅이 올라옴)
         }
         if (msg == "!공지") {
             replier.reply(DataBase.getDataBase("공지"))
