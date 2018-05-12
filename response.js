@@ -83,7 +83,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         var image = DataBase.getDataBase("image")
         if (ImageDB.getProfileImage() == image) {
             if (msg.indexOf("!eval ") == 0) {
-                eval(msg.substring(6))
+                replier.reply(eval(msg.substring(6)))
             }
         }
         else if (ImageDB.getProfileImage() != image) {
