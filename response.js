@@ -240,7 +240,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     }
     catch (e) {
         if (first == 0) {
-            replier.reply("오류 발생!\n 오류메시지 : " + e.message + "\n" + e.lineNumber + 1 + "번째 줄에서 오류 발생!")
+            replier.reply("오류 발생!\n 오류메시지 : " + e.message + "\n" + Number(e.lineNumber) + 1 + "번째 줄에서 오류 발생!")
             first = 1;
         }
     }
