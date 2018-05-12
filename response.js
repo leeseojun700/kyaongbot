@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var only = false;
+var first = 0;
 const count = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 function getHtml(text) {
@@ -237,7 +237,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         에러
     }
     catch (e) {
-        replier.reply("오류 발생!\n 오류메시지 : " + e.message + e.lineNumber)
+        if (first == 0) {
+            replier.reply("오류 발생!\n 오류메시지 : " + e.message + "\n" + e.lineNumber + 1 + "번째 줄에서 오류 발생!")
+            var first = 1;
+        }
     }
     }
 
