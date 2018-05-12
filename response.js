@@ -29,6 +29,7 @@ function wiki(query) {
     kiwi = kiwi.substring(0, kiwi.length - 17)
     return kiwi.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "")
 }
+
 const UPDATE = {};
 UPDATE.saveData = function (msg) { //파일에 내용을 저장하는 함수
     try { //사실, 나도 어디서 긁어와서 이곳저곳에서 사용하는 거임
