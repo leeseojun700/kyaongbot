@@ -162,8 +162,17 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     DataBase.setDataBase(DataBase.getDataBase("timeold"), "timenew");
                     DataBase.setDataBase(DataBase.getDataBase("timetemp"), "timeold");
                     DataBase.setDataBase(Number(DataBase.getDataBase(room)), roomtemp);
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(room));
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(roomtemp));
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(roombackup));
                     DataBase.setDataBase(Number(DataBase.getDataBase(roombackup)), room);
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(room));
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(roomtemp));
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(roombackup));
                     DataBase.setDataBase(Number(DataBase.getDataBase(roomtemp)), roombackup);
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(room));
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(roomtemp));
+                    replier.reply(DataBase.getDataBase(Number(DataBase.getDataBase(roombackup));
                     replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase("timeold") + ",\n백업 시점은 " + DataBase.getDataBase("timenew") + " 입니다.");
                 }
                 if (msg == "!리로드") {
