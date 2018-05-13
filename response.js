@@ -314,7 +314,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     replier.reply("[" + sender + "]\n욕설 사용 횟수: " + war + "회\n욕설 사용을 자제해 주세요.");
                 }
                 if (war > 20) {
-                    Api.replyRoom("간부방", "욕설 횟수가 초가하여 보냅니다.\n" + sender + "님이 욕설 횟수가 " + war + "회 되어 이 메시지가 보내졌습니다. 강퇴 바랍니다.")
+                    Api.replyRoom("간부방", "욕설 횟수가 초과하여 보냅니다.\n" + sender + "님이 욕설 횟수가 " + war + "회 되어 이 메시지가 보내졌습니다. 강퇴 바랍니다.")
                 }
                 break;
             }
