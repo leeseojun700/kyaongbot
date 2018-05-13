@@ -152,6 +152,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     DataBase.setDataBase(getTimeStamp(), "timenew");
                     replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + Number(DataBase.getDataBase(room)) + "회 기록됨");
                     DataBase.setDataBase(Number(DataBase.getDataBase(room)), "rbackup");
+                    DataBase.setDataBase(0, room);
                     replier.reply("초기화 성공");
                 }
                 if (msg.trim() == "!채팅카운터 다") {
