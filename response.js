@@ -17,8 +17,6 @@ var first = 0;
 const count = {};
 const daycounter = {};
 const hourcounter = {};
-const rtemp = {};
-const rbackup = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 function getTimeStamp() {
   var d = new Date();
@@ -153,11 +151,11 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     }
                     DataBase.setDataBase(getTimeStamp(), "timenew");
                     replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + Number(DataBase.getDataBase(room)) + "회 기록됨");
-                    DataBase.setDataBase(Number(DataBase.getDataBase(room)), rbackup);
+                    DataBase.setDataBase(Number(DataBase.getDataBase(room)), "rbackup");
                     replier.reply("초기화 성공");
                 }
                 if (msg.trim() == "!채팅카운터 다") {
-                 replier.reply(Number(DataBase.getDataBase(rbackup)));
+                 replier.reply(Number(DataBase.getDataBase("rbackup")));
                  }
                 if (msg.trim() == "!채팅카운터 백업") {
                     DataBase.setDataBase(DataBase.getDataBase("timenew"), "timetemp");
