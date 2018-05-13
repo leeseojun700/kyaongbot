@@ -158,9 +158,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     replier.reply("초기화 성공");
                 }
                 if (msg.trim() == "!채팅카운터 백업") {
-                    DataBase.setDataBase(DataBase.getDataBase("timenew", "timetemp");
-                    DataBase.setDataBase(DataBase.getDataBase("timeold", "timenew");
-                    DataBase.setDataBase(DataBase.getDataBase("timetemp", "timeold");
+                    DataBase.setDataBase(DataBase.getDataBase("timenew"), "timetemp");
+                    DataBase.setDataBase(DataBase.getDataBase("timeold"), "timenew");
+                    DataBase.setDataBase(DataBase.getDataBase("timetemp"), "timeold");
                     DataBase.setDataBase(Number(DataBase.getDataBase(room)), roomtemp);
                     DataBase.setDataBase(Number(DataBase.getDataBase(roombackup)), room);
                     DataBase.setDataBase(Number(DataBase.getDataBase(roomtemp)), roombackup);
