@@ -109,7 +109,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         if (DataBase.getDataBase(hourcounter) == NaN) {
             DataBase.setDataBase(0, hourcounter)
         }
-        DataBase.setDataBase(Number(Number(DataBase.getDataBase(hourcounter))) + Number(1), hourcounter)
+        DataBase.setDataBase(Number(Number(DataBase.getDataBase(hourcounter))) + Number(1), hourcounter);
         /*도배 방지*/
         if (preMsg[room] == msg) { //채팅 내용이랑 직전에 수신된 채팅 내용이 같으면,
             return; //도배로 간주하고 response 함수 종료
