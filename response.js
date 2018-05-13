@@ -94,6 +94,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         msg = msg.trim(); //이거 왜있는지 모르면 골롬
         room = room.trim();
+        daycounter = room.trim();
+        hourcounter = room.trim();
         sender = sender.trim();
         /* 카운트 */
         if (DataBase.getDataBase(room) == NaN) {
