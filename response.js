@@ -164,7 +164,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     DataBase.setDataBase(Number(DataBase.getDataBase(room)), roomtemp);
                     DataBase.setDataBase(Number(DataBase.getDataBase(roombackup)), room);
                     DataBase.setDataBase(Number(DataBase.getDataBase(roomtemp)), roombackup);
-                    replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase(timeold) + ",\n백업 시점은 " + DataBase.getDataBase(timenew) + " 입니다.");
+                    replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase("timeold") + ",\n백업 시점은 " + DataBase.getDataBase("timenew") + " 입니다.");
                 }
                 if (msg == "!리로드") {
                     Api.reload()
