@@ -194,10 +194,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         /* 관리자 아닐시 보내는 문구 */
         else if (admin.indexOf(sender) == -1) {
-            if (msg == "!공지카운터") {
+            if (msg == "!채팅카운터 리셋") {
                 replier.reply("관리자가 아닙니다.")
             }
-            if (msg == "!채팅카운터") {
+            if (msg == "!채팅카운터 백업") {
                 replier.reply("관리자가 아닙니다.")
             }
             if (msg == "!리로드") {
