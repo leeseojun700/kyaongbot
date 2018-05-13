@@ -156,15 +156,19 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     DataBase.setDataBase(0, room);
                     replier.reply("초기화 성공");
                 }
+                
                 if (msg.trim() == "!채팅카운터 백업") {
                     DataBase.setDataBase(DataBase.getDataBase("timenew"), "timetemp");
                     DataBase.setDataBase(DataBase.getDataBase("timeold"), "timenew");
                     DataBase.setDataBase(DataBase.getDataBase("timetemp"), "timeold");
                     DataBase.setDataBase(Number(DataBase.getDataBase(room)), "rtemp");
+                    
                     DataBase.setDataBase(Number(DataBase.getDataBase("rbackup")), room);
-                    DataBase.setDataBase(Number(DataBase.getDataBase("rtemp")), "rbackup"):
+
+                    DataBase.setDataBase(Number(DataBase.getDataBase("rtemp")), "rbackup");
+
                     replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase("timeold") + ",\n백업 시점은 " + DataBase.getDataBase("timenew") + " 입니다.");
-                }
+                }
                 if (msg == "!리로드") {
                     Api.reload()
                     replier.reply("리로드 되었습니다!")
