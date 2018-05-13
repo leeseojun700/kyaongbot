@@ -216,7 +216,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(new Date().getHours(), "counthour");
             }
         if (msg == "!카운트") {
-            replier.reply("어제 하루" + DataBase.getDataBase("daycache") + "개,\n지난 한시간 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
+            replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
         }
         if (msg == "!공지") {
             replier.reply(DataBase.getDataBase("공지"))
