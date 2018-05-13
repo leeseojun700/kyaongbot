@@ -29,15 +29,6 @@ function getTimeStamp() {
 
   return s;
 }
-function ShortStamp1() {
-  var d = new Date();
-  var s =
-    leadingZeros(d.getFullYear(), 4) + '-' +
-    leadingZeros(d.getMonth() + 1, 2) + '-' +
-    leadingZeros(d.getDate() - 1, 2);
-
-  return s;
-}
 function leadingZeros(n, digits) {
   var zero = '';
   n = n.toString();
@@ -100,14 +91,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(0, room)
         }
         DataBase.setDataBase(Number(Number(DataBase.getDataBase(room))) + Number(1), room)
-        if (DataBase.getDataBase(daycounter) == NaN) {
-            DataBase.setDataBase(0, daycounter)
-        }
-        DataBase.setDataBase(Number(Number(DataBase.getDataBase(daycounter))) + Number(1), daycounter)
-        if (DataBase.getDataBase(hourcounter) == NaN) {
-            DataBase.setDataBase(0, hourcounter)
-        }
-        DataBase.setDataBase(Number(Number(DataBase.getDataBase(hourcounter))) + Number(1), hourcounter)
         /*도배 방지*/
         if (preMsg[room] == msg) { //채팅 내용이랑 직전에 수신된 채팅 내용이 같으면,
             return; //도배로 간주하고 response 함수 종료
@@ -201,21 +184,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 replier.reply("관리자가 아닙니다.")
             }
         }
-        if (new Date().getDate() != DataBase.getDataBase("countday")) {
-            DataBase.setDataBase(Number(DataBase.getDataBase(daycounter)), "daycache");
-            replier.reply(ShortStamp1() + "\n지난 하루동안 올라온 채팅 수: " + Number(DataBase.getDataBase(daycounter)) + "개");
-            DataBase.setDataBase(0, daycounter);
-            DataBase.setDataBase(new Date().getDate(), "countday");
-            }
-        if (new Date().getHours() != DataBase.getDataBase("counthour")) {
-            DataBase.setDataBase(Number(DataBase.getDataBase(hourcounter)), "hourcache");
-            replier.reply("지난 한시간동안 올라온 채팅 수: " + Number(DataBase.getDataBase(hourcounter)) + "개");
-            DataBase.setDataBase(0, hourcounter);
-            DataBase.setDataBase(new Date().getHours(), "counthour");
-            }
-        if (msg == "!카운트") {
-            replier.reply("어제 하루" + DataBase.getDataBase("daycache") + "개,\n지난 한시간 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
-        }
         if (msg == "!공지") {
             replier.reply(DataBase.getDataBase("공지"))
             count[room] = 0
@@ -291,8 +259,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         var timeb = new Date().getTime();
         var timec = (timeb - timea)
-        if (msg == "!응답속도") {
-            replier.reply("응답속도 : " + timec + "ms")
+        if (msg == "!반응속도") {
+            replier.reply("캬옹봇의 반응속도는" + timec + "ms입니다.")
         }
         for (var n = 0; n < notwords.length; n++) {
             if (msg.indexOf(notwords[n]) != -1) {
