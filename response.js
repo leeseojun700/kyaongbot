@@ -17,8 +17,6 @@ var first = 0;
 const count = {};
 const daycounter = {};
 const hourcounter = {};
-const rbackup = {};
-const rtemp = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 function getTimeStamp() {
   var d = new Date();
@@ -156,7 +154,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                     DataBase.setDataBase(Number(DataBase.getDataBase(room)), rbackup);
                     replier.reply("초기화 성공");
                 }
-                if (msg.trim() == "!채팅카운터 다운") {
+                if (msg.trim() == "!채팅카운터 다") {
                  replier.reply(Number(DataBase.getDataBase(rbackup)));
                  }
                 if (msg.trim() == "!채팅카운터 백업") {
