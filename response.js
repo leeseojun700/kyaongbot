@@ -203,13 +203,13 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         if (new Date().getDate() != DataBase.getDataBase("countday")) {
             DataBase.setDataBase(Number(DataBase.getDataBase(daycounter)), "daycache");
-            replier.reply(ShortStamp1() + "\n지난 하루동안 올라온 채팅 수: " + Number(DataBase.getDataBase(daycounter) + "개");
+            replier.reply(ShortStamp1() + "\n지난 하루동안 올라온 채팅 수: " + Number(DataBase.getDataBase(daycounter)) + "개");
             DataBase.setDataBase(0, daycounter);
             DataBase.setDataBase(new Date().getDate(), "countday");
             }
         if (new Date().getHours() != DataBase.getDataBase("counthour")) {
             DataBase.setDataBase(Number(DataBase.getDataBase(hourcounter)), "hourcache");
-            replier.reply("지난 한시간동안 올라온 채팅 수: " + Number(DataBase.getDataBase(hourcounter) + "개");
+            replier.reply("지난 한시간동안 올라온 채팅 수: " + Number(DataBase.getDataBase(hourcounter)) + "개");
             DataBase.setDataBase(0, hourcounter);
             DataBase.setDataBase(new Date().getHours(), "counthour");
             }
