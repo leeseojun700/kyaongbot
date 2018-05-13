@@ -17,6 +17,8 @@ var first = 0;
 const count = {};
 const daycounter = {};
 const hourcounter = {};
+const rtemp = {};
+const rbackup = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 function getTimeStamp() {
   var d = new Date();
