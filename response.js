@@ -115,6 +115,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             return; //도배로 간주하고 response 함수 종료
         }
         preMsg[room] = msg; //수신된 채팅 내용 저장
+        DataBase.setDataBase(Number(Number(DataBase.getDataBase("rbackup"))) + Number(1), "rbackup");
         /* 공지 카운터 */
         if (count[room] === undefined) { //한 번도 수신된 적이 없는 경우,
             count[room] = 1; //수신된 횟수에 1 저장
