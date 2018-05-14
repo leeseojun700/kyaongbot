@@ -259,7 +259,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
         inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
         icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
-        replier.reply("[" + sender + " 님의 식별코드가 신규 등록됨\n + "식별코드: " + n);
+        replier.reply("[" + sender + " 님의 식별코드가 신규 등록됨\n식별코드: " + n);
         var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
       }
     }
