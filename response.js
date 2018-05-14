@@ -94,7 +94,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (msg == "!프사갱신") {
                 DataBase.setDataBase(ImageDB.getProfileImage(), "image")
                 replier.reply("프사갱신 완료!" + DataBase.getDataBase("image"))
-            
+            }
         }
         msg = msg.trim(); //이거 왜있는지 모르면 골롬
         room = room.trim();
