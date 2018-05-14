@@ -240,7 +240,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
     var tn1 = inick.indexOf(sender);
     var tn2 = icode[tn1];
-    replier.reply(tn2);
+    replier.reply(sender + "\n" + tn2);
   } else {
     while(true) { //루프
       
@@ -248,7 +248,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
         inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
         icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
-        replier.reply(n);
+        replier.reply(sender + " (신규발급)\n" + n);
         break; //while문 탈출
       }
     }
