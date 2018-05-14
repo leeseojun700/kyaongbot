@@ -242,7 +242,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     var tn2 = icode[tn1];
     replier.reply(tn1 + tn2);
   } else {
-    var tcheck = true; //while 탈출용 변수
+    var tcheck = false; //while 탈출용 변수
     while (tcheck === false) { //while 값이 false일 동안
       var n = 0;
       n = Math.floor(Math.random() * 9000 + 1000); //랜덤 네자리수 생성
