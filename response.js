@@ -124,7 +124,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         } else { //아니면
             count[room]++; //1증가
         }
-        if (count[room] == 300) { //200번 다 채우면,
+        if (count[room] == 300) { //300번 다 채우면,
             replier.reply(DataBase.getDataBase("공지"))
             count[room] = 0; //0으로 초기화
         }
@@ -244,8 +244,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   } else {
     var tcheck = false; //while 탈출용 변수
     while (tcheck === false) { //while 값이 false일 동안
-      var n = 0;
-      n = Math.floor(Math.random() * 9000 + 1000); //랜덤 네자리수 생성
+      
+      var n = Math.floor(Math.random() * 9000 + 1000); //랜덤 네자리수 생성
       if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
         inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
         icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
