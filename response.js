@@ -236,21 +236,11 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         if (msg == "!카운트") {
             replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
         }
-     if (msg == "!식별코드 저장") {
-       DataBase.setDataBase(icode, icode);
-       DataBase.setDataBase(inick, inick);
-       replier.reply("성공!");
-       }
-     if (msg == "!식별코드 불러오기") {
-      var icode = DataBase.getDataBase(icode);
-      var inick = DataBase.getDataBase(inick);
-      replier.reply("성공!");
-      }
      if (msg == "!식별코드 확인") {
   if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
     var tn1 = inick.indexOf(sender);
     var tn2 = icode[tn1];
-    replier.reply("식별코드: " + tn2);
+    replier.reply(tn1 + tn2);
   } else {
     var tcheck = false; //while 탈출용 변수
     while (tcheck === false) { //while 값이 false일 동안
@@ -259,7 +249,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
         inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
         icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
-        replier.reply("[" + sender + " 님의 식별코드가 신규 등록됨\n식별코드: " + n);
+        replier.reply(sender + n);
         var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
       }
     }
