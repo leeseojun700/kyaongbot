@@ -237,8 +237,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
         }
      if (msg == "!식별코드 확인") {
-  if (sender.indexOf(inick) == -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
-    var tn1 = sender.indexOf(inick);
+  if (inick.indexOf(sender) == -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
+    var tn1 = inick.indexOf(sender);
     var tn2 = icode[tn1 - 1];
     replier.reply(tn1 + tn2);
   } else {
@@ -246,7 +246,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     while (tcheck === false) { //while 값이 false일 동안
       var n = 0;
       n = Math.floor(Math.random() * 9000 + 1000); //랜덤 네자리수 생성
-      if (n.indexOf(icode) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
+      if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
         inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
         icode.push(n); //식별코드 배열 안에 전송자의 닉네임 추가
         replier.reply("sender" + n);
