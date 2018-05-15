@@ -304,8 +304,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
       }
 loop:
-    if (msg.split(" ")[0] == "!호출코드") {
-      var com = msg.split("!호출코드 ")[1]
+    if (msg.split(" ")[0] == "!코드호출") {
+      var com = msg.split("!코드 ")[1]
       com *= 1;
       var x = icode.indexOf(com)
       var com = inick[x]
@@ -316,9 +316,9 @@ loop:
         while (pos1 > -1) {
           position1.push(pos1);
           pos = call.indexOf(com, pos1);
+        }
           var position2 = new Array();
           var pos2 = caller.indexOf(sender);
-        }
         while (pos2 > -1) {
           position2.push(pos2);
           pos = caller.indexOf(com, pos2);
