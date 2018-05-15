@@ -83,6 +83,15 @@ UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
     Log.debug(e + " At:" + e.lineNumber);
   }
 };
+
+function reload() {
+    //백업띠
+    DataBase.setDataBase(icode, "icode")
+    DataBase.setDataBase(inick, "inick")
+    Api.reload();
+    var icode = DataBase.getDataBase("icode")
+    var inick = DataBase.getDataBase("inick")
+}
 var ver = "3.4(철퇴)"
 var dev = "불여우"
 var license = "GPL"
@@ -174,7 +183,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase("timeold") + ",\n백업 시점은 " + DataBase.getDataBase("timenew") + " 입니다.");
         }
         if (msg == "!리로드") {
-          Api.reload()
+          reload()
           replier.reply("리로드 되었습니다!")
         }
         if (msg == "!업데이트") {
@@ -182,7 +191,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
           replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
           replier.reply("리로드 중...")
-          Api.reload()
+          reload()
           if (error == false) {
             replier.reply("업데이트 성공!")
           }
@@ -274,7 +283,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
               if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
                 inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
                 icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
-                replier.reply(sender + " (신규발급)\n" + n);
                 var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
               }
             }
