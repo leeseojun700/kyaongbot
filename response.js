@@ -264,8 +264,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       }
     }
     if (msg == "!식별코드 출력") {
-      for(var i=0; i<icode.length; i++) {
       ilist = [];
+      for(var i=0; i<icode.length; i++) {
       ilist.push(icode[i]);
       ilist.push(" - ");
       ilist.push(inick[i]);
