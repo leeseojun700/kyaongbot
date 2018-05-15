@@ -91,6 +91,7 @@ function reload() {
     Api.reload();
     var icode = DataBase.getDataBase("icode")
     var inick = DataBase.getDataBase("inick")
+    Api.replyRoom("간부방", "테스팅")
 }
 var ver = "3.4(철퇴)"
 var dev = "불여우"
@@ -195,7 +196,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (error == false) {
                 replier.reply("업데이트 성공!")
             }
-            else {
+            else if(error = true){
                 replier.reply("업데이트 실패..")
             }
         }
