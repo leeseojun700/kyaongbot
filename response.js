@@ -14,6 +14,7 @@
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 var first = 0;
+var call = [];
 const count = {};
 const daycounter = {};
 const hourcounter = {};
@@ -242,7 +243,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
     }
     if (msg == "!업뎃") {
-      replier.reply("4588")
+      replier.reply("1111")
     }
     if (msg == "!식별코드 확인") {
       if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
@@ -263,13 +264,98 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
       }
     }
+    loop:
+      if (msg.split(" ")[0] == "!호출") {
+        var com = msg.split("!호출 ")[1]
+        if (call.indexOf(com) == -1 && caller.indexof(sender) == -1) {
+
+          var position1 = new Array();
+          var pos1 = text.indexOf(com);
+          while (pos1 > -1) {
+            position1.push(pos1);
+            pos = text.indexOf(com, pos1);
+            var position2 = new Array();
+            var pos2 = text.indexOf(sender);
+          }
+          while (pos2 > -1) {
+            position2.push(pos2);
+            pos = text.indexOf(com, pos2);
+          }
+
+          let tempArr = [];
+          let uniqueArr = [];
+          for (let i of position1) { // 첫번째 배열을 반복하면서 
+            tempArr[i] = i; // 각 값에 따른 인덱스에 해당 값을 저장
+          } // 이렇게하면 tempArr 의 1, 4, 5, ~ 99, 100 번째 인덱스에 값이 저장되고
+          for (let i of position2) { // 두번째 배열을 반복하면서
+            if (tempArr[i]) {
+              replier.reply("이미 호출한 상대입니다.")
+              break loop; // tempArr의 i 인덱스에 값이 있는지 확인하고 있으면 loop loop를 break
+            }
+          }
+        }
+        if (inick.indexOf(com) != -1) {
+          call.push(com)
+          caller.push(sender)
+          replier.reply("상대를 호출했습니다.")
+        } else {
+          replier.reply("상대의 호출코드가 등록되지 않았습니다.")
+        }
+      }
+
+    if (msg.split(" ")[0] == "!호출코드") {
+      var com = msg.split("!호출코드 ")[1]
+      var x = icode.indexOf(com)
+      var com = inick[x]
+      if (call.indexOf(com) == -1 && caller.indexof(sender) == -1) {
+
+        var position1 = new Array();
+        var pos1 = text.indexOf(com);
+        while (pos1 > -1) {
+          position1.push(pos1);
+          pos = text.indexOf(com, pos1);
+          var position2 = new Array();
+          var pos2 = text.indexOf(sender);
+        }
+        while (pos2 > -1) {
+          position2.push(pos2);
+          pos = text.indexOf(com, pos2);
+        }
+
+        let tempArr = [];
+        let uniqueArr = [];
+        for (let i of position1) { // 첫번째 배열을 반복하면서 
+          tempArr[i] = i; // 각 값에 따른 인덱스에 해당 값을 저장
+        } // 이렇게하면 tempArr 의 1, 4, 5, ~ 99, 100 번째 인덱스에 값이 저장되고
+        for (let i of position2) { // 두번째 배열을 반복하면서
+          if (tempArr[i]) {
+            replier.reply("이미 호출한 상대입니다.")
+            break loop; // tempArr의 i 인덱스에 값이 있는지 확인하고 있으면 loop loop를 break
+          }
+        }
+      }
+      if (inick.indexOf(com) != -1) {
+        call.push(com)
+        caller.push(sender)
+        replier.reply("상대를 호출했습니다.")
+      } else {
+        replier.reply("상대의 호출코드가 등록되지 않았습니다.")
+      }
+    }
+    //호출인식*******************
+    while (call.indexof(sender) != -1) {
+      var x = call.indexof(sender)
+      replier.reply(call[x] + "님이 당신을 찾습니다, " + caller[x] + "님")
+      call.splice(x,1);
+      caller.splice(x,1);
+    }
     if (msg == "!식별코드 출력") {
       ilist = [];
-      for(var i=0; i<icode.length; i++) {
-      ilist.push(icode[i]);
-      ilist.push(" - ");
-      ilist.push(inick[i]);
-      ilist.push("\n");
+      for (var i = 0; i < icode.length; i++) {
+        ilist.push(icode[i]);
+        ilist.push(" - ");
+        ilist.push(inick[i]);
+        ilist.push("\n");
       }
       rep = ilist.join([separator = '']);
       replier.reply(rep);
