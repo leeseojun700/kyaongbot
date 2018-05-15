@@ -196,7 +196,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             if (error == false) {
                 replier.reply("업데이트 성공!")
             }
-            else if(error = true){
+            else if(error == true){
                 replier.reply("업데이트 실패..")
             }
         }
