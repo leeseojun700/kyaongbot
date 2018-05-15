@@ -271,7 +271,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       ilist.push(inick[i]);
       ilist.push("\n");
       }
-      rep = ilist.join()
+      rep = ilist.join([separator = ''])
       replier.reply(rep)
     }
     if (msg == "!공지") {
