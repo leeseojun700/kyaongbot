@@ -256,7 +256,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
         }
         if (msg == "!업뎃") {
-          replier.reply("1111")
+          replier.reply("4411")
         }
         if (msg == "!식별코드 확인") {
           if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
@@ -293,7 +293,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         loop:
           if (msg.split(" ")[0] == "!호출") {
             var com = msg.split("!호출 ")[1]
-            if (call.indexOf(com) == -1 && caller.indexOf(sender) == -1) {
+            if (call.indexOf(com) != -1 && caller.indexOf(sender) != -1) {
 
               var position1 = new Array();
               var pos1 = call.indexOf(com);
@@ -335,7 +335,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             com *= 1;
             var x = icode.indexOf(com)
             var com = inick[x]
-            if (call.indexOf(com) == -1 && caller.indexOf(sender) == -1) {
+            if (call.indexOf(com) != -1 && caller.indexOf(sender) != -1) {
 
               var position1 = new Array();
               var pos1 = call.indexOf(com);
