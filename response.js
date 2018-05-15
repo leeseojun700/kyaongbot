@@ -15,6 +15,7 @@
 */
 var first = 0;
 var call = [];
+var caller = [];
 const count = {};
 const daycounter = {};
 const hourcounter = {};
@@ -306,14 +307,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
 
           if (msg.split(" ")[0] == "!코드호출") {
             var com = msg.split("!코드호출 ")[1]
-            replier.reply(com)
-            replier.reply(icode.indexOf(com))
             com *= 1;
             var x = icode.indexOf(com)
-            replier.reply(icode[0])
-            replier.reply(x)
             var com = inick[x]
-            replier.reply(com)
             if (call.indexOf(com) == -1 && caller.indexOf(sender) == -1) {
 
               var position1 = new Array();
