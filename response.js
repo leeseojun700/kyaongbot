@@ -244,7 +244,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     if (msg == "!업뎃") {
       replier.reply("0943")
     }
-    /*
      if (msg == "!식별코드 확인") {
   if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
     var tn1 = inick.indexOf(sender);
@@ -263,7 +262,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     }
   }
 }
-     */
     if (msg == "!공지") {
       replier.reply(DataBase.getDataBase("공지"))
       count[room] = 0
