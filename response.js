@@ -86,20 +86,7 @@ UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
 };
 
 function reload() {
-   DataBase.setDataBase(icode.join(separator = '~!+!~'), "icodebackup");
-   DataBase.setDataBase(inick.join(separator = '~!+!~'), "inickbackup");
-   DataBase.setDataBase(call.join(separator = '~!+!~'), "callbackup");
-   DataBase.setDataBase(caller.join(separator = '~!+!~'), "callerbackup");
-   replier.reply(DataBase.getDataBase("icodebackup"))
-   Api.reload();
-   var s = DataBase.getDataBase("icodebackup");
-   icode = s.split('~!+!~');
-   var s = DataBase.getDataBase("inickbackup");
-   inick = s.split('~!+!~');
-   var s = DataBase.getDataBase("callbackup");
-   call = s.split('~!+!~');
-   var s = DataBase.getDataBase("callerbackup");
-   caller = s.split('~!+!~');
+   
     }
 var ver = "3.4(철퇴)"
 var dev = "불여우"
@@ -191,14 +178,40 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase("timeold") + ",\n백업 시점은 " + DataBase.getDataBase("timenew") + " 입니다.");
         }
         if (msg == "!리로드") {
-            reload()
+            DataBase.setDataBase(icode.join(separator = '~!+!~'), "icodebackup");
+   DataBase.setDataBase(inick.join(separator = '~!+!~'), "inickbackup");
+   DataBase.setDataBase(call.join(separator = '~!+!~'), "callbackup");
+   DataBase.setDataBase(caller.join(separator = '~!+!~'), "callerbackup");
+   replier.reply(DataBase.getDataBase("icodebackup"));
+   Api.reload();
+   var s = DataBase.getDataBase("icodebackup");
+   icode = s.split('~!+!~');
+   var s = DataBase.getDataBase("inickbackup");
+   inick = s.split('~!+!~');
+   var s = DataBase.getDataBase("callbackup");
+   call = s.split('~!+!~');
+   var s = DataBase.getDataBase("callerbackup");
+   caller = s.split('~!+!~');
             replier.reply("리로드 완료!")
         }
         if (msg == "!업데이트") {
           replier.reply("다운 중...")
           UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
           replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
-          reload()
+          DataBase.setDataBase(icode.join(separator = '~!+!~'), "icodebackup");
+   DataBase.setDataBase(inick.join(separator = '~!+!~'), "inickbackup");
+   DataBase.setDataBase(call.join(separator = '~!+!~'), "callbackup");
+   DataBase.setDataBase(caller.join(separator = '~!+!~'), "callerbackup");
+   replier.reply(DataBase.getDataBase("icodebackup"));
+   Api.reload();
+   var s = DataBase.getDataBase("icodebackup");
+   icode = s.split('~!+!~');
+   var s = DataBase.getDataBase("inickbackup");
+   inick = s.split('~!+!~');
+   var s = DataBase.getDataBase("callbackup");
+   call = s.split('~!+!~');
+   var s = DataBase.getDataBase("callerbackup");
+   caller = s.split('~!+!~');
           replier.reply("리로드 완료!")
             if (error == false) {
                 replier.reply("업데이트 성공!")
