@@ -91,6 +91,7 @@ function reload() {
     Api.reload();
     var icode = DataBase.getDataBase("icode")
     var inick = DataBase.getDataBase("inick")
+    replier.reply("리로드 완료!")
 }
 var ver = "3.4(철퇴)"
 var dev = "불여우"
@@ -184,13 +185,11 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         if (msg == "!리로드") {
           reload()
-          replier.reply("리로드 되었습니다!")
         }
         if (msg == "!업데이트") {
           replier.reply("다운 중...")
           UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
           replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
-          replier.reply("리로드 중...")
           reload()
           if (error == false) {
             replier.reply("업데이트 성공!")
@@ -488,6 +487,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       }
     }
   } catch (e) {
+      var error = true;
     if (first == 0) {
       replier.reply("오류 발생!\n오류메시지 : " + e.message + "\n" + Number(Number(e.lineNumber) + Number(1)) + "번째 줄에서 오류가 발생했습니다!")
       first = 1;
