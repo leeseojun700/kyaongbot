@@ -90,6 +90,7 @@ function reload() {
    DataBase.setDataBase(inick.join(separator = '~!+!~'), "inickbackup");
    DataBase.setDataBase(call.join(separator = '~!+!~'), "callbackup");
    DataBase.setDataBase(caller.join(separator = '~!+!~'), "callerbackup");
+   replier.reply(DataBase.getDataBase("icodebackup"))
    Api.reload();
    var s = DataBase.getDataBase("icodebackup");
    icode = s.split('~!+!~');
