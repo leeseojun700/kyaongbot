@@ -243,7 +243,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
     var tn1 = inick.indexOf(sender);
     var tn2 = icode[tn1];
-    replier.reply(tn1 + "\n" + tn2);
+    replier.reply(sender + tn2);
   } else {
     var tcheck = false; //while 탈출용 변수
     while (tcheck === false) { //while 값이 false일 동안
@@ -252,7 +252,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
         inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
         icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
-        replier.reply(sender + n);
+        replier.reply(sender + "\n" + n);
         var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
       }
     }
