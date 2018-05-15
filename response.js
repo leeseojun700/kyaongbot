@@ -275,9 +275,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
               while (pos1 > -1) {
                 position1.push(pos1);
                 pos = call.indexOf(com, pos1);
+              }
                 var position2 = new Array();
                 var pos2 = caller.indexOf(sender);
-              }
               while (pos2 > -1) {
                 position2.push(pos2);
                 pos = caller.indexOf(com, pos2);
@@ -289,7 +289,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 tempArr[i] = i; // 각 값에 따른 인덱스에 해당 값을 저장
               } // 이렇게하면 tempArr 의 1, 4, 5, ~ 99, 100 번째 인덱스에 값이 저장되고
               for (let i of position2) { // 두번째 배열을 반복하면서
-                if (tempArr[i]) {
+                if (tempArr[i] != -1) {
                   replier.reply("이미 호출한 상대입니다.")
                   break loop; // tempArr의 i 인덱스에 값이 있는지 확인하고 있으면 loop loop를 break
                 }
@@ -349,7 +349,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         //호출인식*******************
         while (call.indexOf(sender) != -1) {
           var x = call.indexOf(sender)
-          replier.reply(call[x] + "님이 당신을 찾습니다, " + caller[x] + "님")
+          replier.reply(caller[x] + "님이 당신을 찾습니다, " + call[x] + "님")
           call.splice(x, 1);
           caller.splice(x, 1);
         }
