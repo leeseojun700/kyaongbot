@@ -237,13 +237,13 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
         }
         if (msg == "!업뎃") {
-            replier.reply("5642")
+            replier.reply("5688")
         }
      if (msg == "!식별코드 확인") {
   if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
     var tn1 = inick.indexOf(sender);
     var tn2 = icode[tn1];
-    replier.reply(tn1 + tn2);
+    replier.reply(tn1 + "\n" + tn2);
   } else {
     var tcheck = false; //while 탈출용 변수
     while (tcheck === false) { //while 값이 false일 동안
