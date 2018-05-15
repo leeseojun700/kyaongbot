@@ -268,19 +268,19 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     loop:
       if (msg.split(" ")[0] == "!호출") {
         var com = msg.split("!호출 ")[1]
-        if (call.indexOf(com) == -1 && caller.indexof(sender) == -1) {
+        if (call.indexOf(com) == -1 && caller.indexOf(sender) == -1) {
 
           var position1 = new Array();
-          var pos1 = text.indexOf(com);
+          var pos1 = call.indexOf(com);
           while (pos1 > -1) {
             position1.push(pos1);
-            pos = text.indexOf(com, pos1);
-            var position2 = new Array();
-            var pos2 = text.indexOf(sender);
+            pos = call.indexOf(com, pos1);
           }
+            var position2 = new Array();
+            var pos2 = caller.indexOf(sender);
           while (pos2 > -1) {
             position2.push(pos2);
-            pos = text.indexOf(com, pos2);
+            pos = caller.indexOf(com, pos2);
           }
 
           let tempArr = [];
@@ -306,21 +306,22 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
 loop:
     if (msg.split(" ")[0] == "!호출코드") {
       var com = msg.split("!호출코드 ")[1]
+      com *= 1;
       var x = icode.indexOf(com)
       var com = inick[x]
-      if (call.indexOf(com) == -1 && caller.indexof(sender) == -1) {
+      if (call.indexOf(com) == -1 && caller.indexOf(sender) == -1) {
 
         var position1 = new Array();
-        var pos1 = text.indexOf(com);
+        var pos1 = call.indexOf(com);
         while (pos1 > -1) {
           position1.push(pos1);
-          pos = text.indexOf(com, pos1);
+          pos = call.indexOf(com, pos1);
           var position2 = new Array();
-          var pos2 = text.indexOf(sender);
+          var pos2 = caller.indexOf(sender);
         }
         while (pos2 > -1) {
           position2.push(pos2);
-          pos = text.indexOf(com, pos2);
+          pos = caller.indexOf(com, pos2);
         }
 
         let tempArr = [];
@@ -344,8 +345,8 @@ loop:
       }
     }
     //호출인식*******************
-    while (call.indexof(sender) != -1) {
-      var x = call.indexof(sender)
+    while (call.indexOf(sender) != -1) {
+      var x = call.indexOf(sender)
       replier.reply(call[x] + "님이 당신을 찾습니다, " + caller[x] + "님")
       call.splice(x,1);
       caller.splice(x,1);
