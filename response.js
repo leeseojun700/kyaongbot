@@ -303,7 +303,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply("상대의 호출코드가 등록되지 않았습니다.")
         }
       }
-
+loop:
     if (msg.split(" ")[0] == "!호출코드") {
       var com = msg.split("!호출코드 ")[1]
       var x = icode.indexOf(com)
