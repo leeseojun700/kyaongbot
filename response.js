@@ -192,9 +192,12 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
           reload()
           replier.reply("리로드 완료!")
-          if (error == false) {
-            replier.reply("업데이트 성공!")
-          }
+            if (error == false) {
+                replier.reply("업데이트 성공!")
+            }
+            else {
+                replier.reply("업데이트 실패..")
+            }
         }
         if (msg == "!프사") {
           var img = ImageDB.getProfileImage();
