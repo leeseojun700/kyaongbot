@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var updatecode = "9999"
+var updatecode = "9009"
 var error = false;
 var first = 0;
 const count = {};
@@ -218,9 +218,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply(msg.substring(5) + "님의 욕설 카운터를 초기화 시켰습니다.");
           DataBase.setDataBase("0", msg.substring(5)); //새로 저장
         }
-        if (msg == "!식별코드 초기화") {
-           
-        }
       }
     }
         /* 관리자 아닐시 보내는 문구 */
@@ -268,7 +265,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         if (msg == "!업뎃") {
           replier.reply(updatecode)
         }
-        if (msg == "!식별코드 확인") {
+        if (msg == "!호출코드 확인") {
           if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
             var tn1 = inick.indexOf(sender);
             var tn2 = icode[tn1];
@@ -301,6 +298,21 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
               }
             }
           }
+        if (msg.split(" ")[0] == "!코드변경") {
+            var to = msg.split("!코드변경 ")[1]
+            if (parseInt(to) < 10000 $$ parseInt(to) > 999) {
+              var x = inick.indexOf(sender);
+              var com = icode[x];
+              if (icode.indexof(to) != -1) {
+                replier.reply("이미 사용중인 호출코드입니다.");
+              } else {
+                icode.splice(icode.indexOf(com), 1, to);
+                replier.reply("호출코드가 변경되었습니다.");
+              }
+            } else {
+              replier.reply("1000에서 9999까지의 숫자를 입력해 주십시오.");
+            }
+        }
         loop:
           if (msg.split(" ")[0] == "!호출") {
             var com = msg.split("!호출 ")[1]
