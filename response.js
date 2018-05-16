@@ -300,10 +300,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           }
         if (msg.split(" ")[0] == "!코드변경") {
             var to = msg.split("!코드변경 ")[1]
-            if (parseInt(to) < 10000 $$ parseInt(to) > 999) {
+            if (parseInt(to) < 10000 && parseInt(to) > 999) {
               var x = inick.indexOf(sender);
               var com = icode[x];
-              if (icode.indexof(to) != -1) {
+              if (icode.indexOf(to) != -1) {
                 replier.reply("이미 사용중인 호출코드입니다.");
               } else {
                 icode.splice(icode.indexOf(com), 1, to);
