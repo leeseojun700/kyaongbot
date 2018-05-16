@@ -19,7 +19,16 @@ const count = {};
 const daycounter = {};
 const hourcounter = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
-
+   var s = DataBase.getDataBase("icodebackup");
+          replier.reply(s);
+   var icode = s.split('~!+!~');
+         replier.reply(icode.join());
+   var s = DataBase.getDataBase("inickbackup");
+   var inick = s.split('~!+!~');
+   var s = DataBase.getDataBase("callbackup");
+   var call = s.split('~!+!~');
+   var s = DataBase.getDataBase("callerbackup");
+   var caller = s.split('~!+!~');
 function getTimeStamp() {
   var d = new Date();
   var s =
@@ -180,16 +189,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
    DataBase.setDataBase(caller.join(separator = '~!+!~'), "callerbackup");
    replier.reply(DataBase.getDataBase("icodebackup"));
    Api.reload();
-   var s = DataBase.getDataBase("icodebackup");
-          replier.reply(s);
-   icode = s.split('~!+!~');
-         replier.reply(icode.join());
-   var s = DataBase.getDataBase("inickbackup");
-   inick = s.split('~!+!~');
-   var s = DataBase.getDataBase("callbackup");
-   call = s.split('~!+!~');
-   var s = DataBase.getDataBase("callerbackup");
-   caller = s.split('~!+!~');
             replier.reply("리로드 완료!")
         }
         if (msg == "!업데이트") {
