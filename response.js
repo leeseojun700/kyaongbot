@@ -390,7 +390,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
               caller.push(sender)
               replier.reply("상대를 호출했습니다.")
             } else {
-              replier.reply("상대의 호코드가 등록되지 않았습니다.")
+              replier.reply("상대의 호출코드가 등록되지 않았습니다.")
             }
           }
         //호출인식*******************
