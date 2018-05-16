@@ -218,6 +218,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply(msg.substring(5) + "님의 욕설 카운터를 초기화 시켰습니다.");
           DataBase.setDataBase("0", msg.substring(5)); //새로 저장
         }
+        if (msg == "!식별코드 초기화") {
+           
+        }
       }
     }
         /* 관리자 아닐시 보내는 문구 */
@@ -290,6 +293,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             while (tcheck === false) { //while 값이 false일 동안
 
               var n = Math.floor(Math.random() * 9000 + 1000); //랜덤 네자리수 생성
+              n += ""; //중요: 숫자->문자 형변환 (DB가 문자 타입!)
               if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
                 inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
                 icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
