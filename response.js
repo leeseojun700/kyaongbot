@@ -295,9 +295,13 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
                 inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
                 icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
                 var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
+                replier.reply("안녕하세요 " + sender + "님, 자유로운 컴퓨터 커뮤니티 컴퓨톡에 오신 것을 환영합니다.\n<!명령어>로 명령어를, <!공지>로 공지를, <!호출?>로 호출기능의 도움말을 확인하세요.\n당신의 호출코드는 [" + n + "]입니다.")
               }
             }
           }
+        if (msg == "!호출?") {
+            replier.reply("▼<!호출> 기능 도움말▼\n\n!호출 [닉네임]\n [닉네임] 님을 호출합니다.\n!코드호출 [호출코드]\n [호출코드]에 해당되는 사람을 호출합니다.\n!호출코드 확인\n 자신의 호출코드를 확인합니다.\n!코드변경 [1000~9999의 정수]\n 자신의 호출코드를 해당 수로 변경합니다.\n!호출코드 목록\n 전화번호부처럼 호출코드 목록을 출력합니다.")
+        }
         if (msg.split(" ")[0] == "!코드변경") {
             var to = msg.split("!코드변경 ")[1]
             if (parseInt(to) < 10000 && parseInt(to) > 999) {
