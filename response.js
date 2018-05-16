@@ -185,7 +185,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
    replier.reply(DataBase.getDataBase("icodebackup"));
    Api.reload();
    var s = DataBase.getDataBase("icodebackup");
+          replier.reply(s);
    icode = s.split('~!+!~');
+         replier.reply(icode.join);
    var s = DataBase.getDataBase("inickbackup");
    inick = s.split('~!+!~');
    var s = DataBase.getDataBase("callbackup");
