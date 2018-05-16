@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var updatecode = "1234"
+var updatecode = "9999"
 var error = false;
 var first = 0;
 const count = {};
@@ -186,7 +186,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
    DataBase.setDataBase(inick.join(separator = '~!+!~'), "inickbackup");
    DataBase.setDataBase(call.join(separator = '~!+!~'), "callbackup");
    DataBase.setDataBase(caller.join(separator = '~!+!~'), "callerbackup");
-   replier.reply(DataBase.getDataBase("icodebackup"));
    Api.reload();
             replier.reply("리로드 완료!")
         }
