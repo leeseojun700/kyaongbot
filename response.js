@@ -463,8 +463,27 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         vmlist.push(currency[i].split('"')[0] + " : " + last[i].split('"')[0]); //변수 생성
       }
       replier.reply(vmlist.join("원\n") + "원"); // 보내기
-    }
-
+      }
+      try {
+          if (msg.indexOf("!단어") == 0) {
+              var u = Utils.getWebText("http://krdic.naver.com/search.nhn?query=" + msg.substr(3));
+              var a = u.split("<ul class=\"lst3\">")
+              var b = a[1].split("</ul>")
+              var c = b[0].replace(/(<([^>]+)>)/g, "");
+              c = c.replace(/발음재생/g, "")
+              c = c.replace(/단어장 저장/g, "")
+              c = c.replace(/매우중요/g, "")
+              c = c.replace(/유의어/g, "\n\n유의어")
+              c = c.trim()
+              c = c.replace(/\n         /g, "")
+              c = c.replace(/  /g, "\n")
+              c = c.replace(/\n\n\n/g, "")
+              replier.reply("[" + msg.substr(3) + " 검색 결과]\n\n" + c)
+          }
+      }
+      catch (e) {
+          replier.reply("단어 정보가 없습니다. 다시 입력해보세요.");
+      }
     try {
       if (msg.split(" ")[0] == "!가사") {
         var u = Utils.getWebText("https://m.search.naver.com/search.naver?query=" + encodeURIComponent(msg.substr(4) + "가사"));
