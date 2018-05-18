@@ -90,10 +90,6 @@ UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
     Log.debug(e + " At:" + e.lineNumber);
   }
 };
-
-function reload() {
-   
-    }
 var ver = "3.4(철퇴)"
 var dev = "불여우"
 var license = "GPL"
