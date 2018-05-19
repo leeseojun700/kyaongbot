@@ -77,6 +77,15 @@ function wiki(query) {
   kiwi = kiwi.substring(0, kiwi.length - 17)
   return kiwi.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "")
 }
+function setCounter(name) {
+  DataBase.setDataBase(Number(DataBase.getDataBase(room)), name)
+}
+function getCounter(name) {
+  Number(DataBase.getDataBase(room)) -  Number(DataBase.getDataBase(name))
+}
+function loadCounter(from, to) {
+   DataBase.setDataBase(Number(DataBase.getDataBase(from)), to)
+}
 
 const UPDATE = {};
 UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
@@ -116,14 +125,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       DataBase.setDataBase(0, room)
     }
     DataBase.setDataBase(Number(Number(DataBase.getDataBase(room))) + Number(1), room)
-    if (DataBase.getDataBase(daycounter) == NaN) {
-      DataBase.setDataBase(0, daycounter)
-    }
-    DataBase.setDataBase(Number(Number(DataBase.getDataBase(daycounter))) + Number(1), daycounter)
-    if (DataBase.getDataBase(hourcounter) == NaN) {
-      DataBase.setDataBase(0, hourcounter)
-    }
-    DataBase.setDataBase(Number(Number(DataBase.getDataBase(hourcounter))) + Number(1), hourcounter)
     /*도배 방지*/
     if (preMsg[room] == msg) { //채팅 내용이랑 직전에 수신된 채팅 내용이 같으면,
       return; //도배로 간주하고 response 함수 종료
@@ -159,22 +160,30 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
           }
           DataBase.setDataBase(getTimeStamp(), "timenew");
+          replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + getCounter("counter") + "회 기록됨");
+          loadCounter("counter", "rbackup")
+          setCounter("counter")
+          replier.reply("초기화 성공");
+        }
+       /*
+        if (msg.trim() == "!채팅카운터 리셋") {
+          if (DataBase.getDataBase("timenew") != null) {
+            DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
+          }
+          DataBase.setDataBase(getTimeStamp(), "timenew");
           replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + Number(DataBase.getDataBase(room)) + "회 기록됨");
           DataBase.setDataBase(Number(DataBase.getDataBase(room)), "rbackup");
           DataBase.setDataBase(0, room);
           replier.reply("초기화 성공");
-        }
+        }*/
 
         if (msg.trim() == "!채팅카운터 백업") {
           DataBase.setDataBase(DataBase.getDataBase("timenew"), "timetemp");
           DataBase.setDataBase(DataBase.getDataBase("timeold"), "timenew");
           DataBase.setDataBase(DataBase.getDataBase("timetemp"), "timeold");
-          DataBase.setDataBase(Number(DataBase.getDataBase(room)), "rtemp");
-
-          DataBase.setDataBase(Number(DataBase.getDataBase("rbackup")), room);
-
-          DataBase.setDataBase(Number(DataBase.getDataBase("rtemp")), "rbackup");
-
+          loadCounter("counter", "rtemp")
+          loadCounter("rbackup", "counter")
+          loadCounter("rtemp", "rbackup")
           replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase("timeold") + ",\n백업 시점은 " + DataBase.getDataBase("timenew") + " 입니다.");
         }
         if (msg == "!리로드") {
@@ -237,7 +246,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             replier.reply("관리자가 아닙니다.")
           }
         }
-        if (new Date().getDate() != DataBase.getDataBase("countday")) {
+        /*if (new Date().getDate() != DataBase.getDataBase("countday")) {
           DataBase.setDataBase(Number(DataBase.getDataBase(daycounter)), "daycache");
           replier.reply(ShortStamp1() + "\n지난 하루동안 올라온 채팅 수: " + Number(DataBase.getDataBase(daycounter)) + "개");
           DataBase.setDataBase(0, daycounter);
@@ -249,15 +258,18 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           DataBase.setDataBase(0, hourcounter);
           DataBase.setDataBase(new Date().getHours(), "counthour");
         }
+ */
         if (msg.trim() == "!공지카운터") {
           replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
         }
         if (msg.trim() == "!채팅카운터") {
-          replier.reply(DataBase.getDataBase("timenew") + " ~\n\n" + Number(DataBase.getDataBase(room)) + "회")
+          replier.reply(DataBase.getDataBase("timenew") + " ~\n\n" + getCounter("counter") + "회")
         }
+   /*
         if (msg == "!카운트") {
           replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
         }
+        */
         if (msg == "!업뎃") {
           replier.reply(updatecode)
         }
