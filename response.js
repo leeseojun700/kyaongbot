@@ -510,7 +510,7 @@ function loadCounter(from, to) {
           replier.reply("롤전적 정보가 없습니다");
       }
       if (msg == "!배그서버") {
-          replier.reply("현재 배그 서버는 " + Utils.getWebText("https://dak.gg/?hl=ko-KR").split('<p> 현재 배틀그라운드 동접자: ')[1].split('< a href = "/statistics/playing" >')[0].trim())
+          replier.reply("현재 배그 서버의 동접자는 " + Utils.getWebText("https://dak.gg/?hl=ko-KR").split('<p> 현재 배틀그라운드 동접자: ')[1].split('<a href="/statistics/playing">')[0].trim() + "이며, 서버는 " + Utils.getWebText("https://dak.gg/?hl=ko-KR").trim().split('<strong>서버:</strong> <span>')[1].split('</span>')[0] + "입니다.")
       }
     try {
       if (msg.split(" ")[0] == "!가사") {
