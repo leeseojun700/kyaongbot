@@ -101,6 +101,9 @@ var words = ["쉬바", "쓰버", "10새", "10새기", "10새리", "10세리", "1
 var notwords = ["도시바", "에이씨벨", "쉬바나", "화염병"]
 var saveArray = ["icode", "inick", "call", "caller"] //*******저장할 배열의 이름!*******
 DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
+for (var i = 0; saveArray.length > i; i++) {
+  eval("if (" + saveArray[i] + " == undefined) " + saveArray[i] + " = []")
+}
 
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
