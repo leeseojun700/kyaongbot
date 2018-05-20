@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var updatecode = "2001"
+var updatecode = "2005"
 var error = false;
 var first = 0;
 const count = {};
@@ -105,6 +105,7 @@ if (DataBase.getDataBase("check") == 0) {
   var inick = []
   var call = []
   var caller = []
+  DataBase.setDataBase(1, "check")
 }
 
 DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
