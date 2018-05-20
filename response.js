@@ -113,11 +113,11 @@ DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
   function setCounter(name) {
-    DataBase.setDataBase(Number(DataBase.getDataBase(room)), name)
+    eval('DataBase.setDataBase(Number(DataBase.getDataBase(room)), ' + room + 'name'))
   }
 
   function getCounter(name) {
-    Number(DataBase.getDataBase(room)) - Number(DataBase.getDataBase(name))
+    eval('Number(DataBase.getDataBase(room)) - Number(DataBase.getDataBase(' + room + 'name))')
   }
 
   function loadCounter(from, to) {
@@ -173,7 +173,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
           }
           DataBase.setDataBase(getTimeStamp(), "timenew");
-          replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + getCounter("counter") + "회 기록됨");
+          eval('replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + getCounter("'+room+'counter") + "회 기록됨")');
           loadCounter("counter", "rbackup")
           setCounter("counter")
           replier.reply("초기화 성공");
@@ -284,7 +284,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
     }
     if (msg.trim() == "!채팅카운터") {
-      replier.reply(DataBase.getDataBase("timenew") + " ~\n\n" + getCounter("counter") + "회")
+      eval('replier.reply(DataBase.getDataBase("' + room + 'timenew") + " ~\n\n" + getCounter("counter") + "회")')
     }
     /*
          if (msg == "!카운트") {
