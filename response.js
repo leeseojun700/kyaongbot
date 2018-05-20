@@ -77,15 +77,7 @@ function wiki(query) {
   kiwi = kiwi.substring(0, kiwi.length - 17)
   return kiwi.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "")
 }
-function setCounter(name) {
-  DataBase.setDataBase(Number(DataBase.getDataBase(room)), name)
-}
-function getCounter(name) {
-  Number(DataBase.getDataBase(room)) -  Number(DataBase.getDataBase(name))
-}
-function loadCounter(from, to) {
-   DataBase.setDataBase(Number(DataBase.getDataBase(from)), to)
-}
+
 
 const UPDATE = {};
 UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
@@ -110,6 +102,15 @@ var notwords = ["도시바", "에이씨벨", "쉬바나", "화염병"]
 
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
+ function setCounter(name) {
+  DataBase.setDataBase(Number(DataBase.getDataBase(room)), name)
+}
+function getCounter(name) {
+  Number(DataBase.getDataBase(room)) -  Number(DataBase.getDataBase(name))
+}
+function loadCounter(from, to) {
+   DataBase.setDataBase(Number(DataBase.getDataBase(from)), to)
+}
   try {
     if (room == "불여우") {
       if (msg == "!프사갱신") {
