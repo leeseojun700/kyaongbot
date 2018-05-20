@@ -212,6 +212,15 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             replier.reply("업데이트 실패..")
           }
         }
+        if (msg == "!예비업데이트") {
+          Api.reload();
+          replier.reply("리로드 완료!")
+        }
+        if (msg == "!예비리로드") {
+          UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
+          Api.reload();
+          replier.reply("리로드 완료!")
+        }
         if (msg == "!프사") {
           var img = ImageDB.getProfileImage();
           replier.reply(img);
