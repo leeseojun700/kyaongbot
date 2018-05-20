@@ -22,7 +22,7 @@ const hourcounter = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 // 배열 백업 기능!
 try {
-    var loadArray = JSON.parse(DataBase.getDataBase(loadArray)); //배열이름의 배열 덩어리를 쪼개서 다시 배열로 만들기
+    var loadArray = JSON.parse(DataBase.getDataBase(saveArray)); //배열이름의 배열 덩어리를 쪼개서 다시 배열로 만들기
     for (var i = 0; loadArray.length > i; i++) { //배열이름마다 배열덩어리를 배열로 쪼개기 반복
         eval(loadArray[i] + " = JSON.parse(DataBase.getDataBase(loadArray[i]))"); //동적변수를 가져오는데 eval을 사용
     }
@@ -194,8 +194,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         if (msg == "!리로드") {
           for (var i = 0; saveArray.length > i; i++) { //배열명 배열 안의 변수마다 반복
             DataBase.setDataBase(JSON.stringify(saveArray[i]), eval(saveArray[i])); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
-            DataBase.setDataBase(JSON.stringify(loadArray), "loadArray");
           }
+          DataBase.setDataBase(JSON.stringify(loadArray), "loadArray");
           Api.reload();
           replier.reply("리로드 완료!")
         }
@@ -205,8 +205,8 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
           for (var i = 0; saveArray.length > i; i++) { //배열명 배열 안의 변수마다 반복
             DataBase.setDataBase(JSON.stringify(saveArray[i]), eval(saveArray[i])); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
-            DataBase.setDataBase(JSON.stringify(loadArray), "loadArray");
           }
+          DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
           Api.reload();
           replier.reply("리로드 완료!")
           if (error == false) {
