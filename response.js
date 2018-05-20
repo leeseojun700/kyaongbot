@@ -21,11 +21,20 @@ const daycounter = {};
 const hourcounter = {};
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 // 배열 백업 기능!
-var loadArray = JSON.parse(DataBase.getDataBase(loadArray)); //배열이름의 배열 덩어리를 쪼개서 다시 배열로 만들기
-for (var i = 0; loadArray.length > i; i++) { //배열이름마다 배열덩어리를 배열로 쪼개기 반복
-  eval(loadArray[i] + " = JSON.parse(DataBase.getDataBase(loadArray[i]))"); //동적변수를 가져오는데 eval을 사용
+try {
+    var loadArray = JSON.parse(DataBase.getDataBase(loadArray)); //배열이름의 배열 덩어리를 쪼개서 다시 배열로 만들기
+    for (var i = 0; loadArray.length > i; i++) { //배열이름마다 배열덩어리를 배열로 쪼개기 반복
+        eval(loadArray[i] + " = JSON.parse(DataBase.getDataBase(loadArray[i]))"); //동적변수를 가져오는데 eval을 사용
+    }
 }
-
+catch (e) {
+    var error = true;
+    if (first == 0) {
+        replier.reply("오류 발생!\n오류메시지 : " + e.message + "\n" + Number(Number(e.lineNumber) + Number(1)) + "번째 줄에서 오류가 발생했습니다!")
+        first = 1;
+    }
+}
+}
 function getTimeStamp() {
   var d = new Date();
   var s =
