@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var updatecode = "2028"
+var updatecode = "2005"
 var error = false;
 var first = 0;
 const count = {};
@@ -113,11 +113,11 @@ DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
   function setCounter(name) {
-    eval('DataBase.setDataBase(Number(DataBase.getDataBase(room)), ' + room + 'name)')
+    DataBase.setDataBase(Number(DataBase.getDataBase(room)), name)
   }
 
   function getCounter(name) {
-    eval('Number(DataBase.getDataBase(room)) - Number(DataBase.getDataBase(' + room + 'name))')
+    Number(DataBase.getDataBase(room)) - Number(DataBase.getDataBase(name))
   }
 
   function loadCounter(from, to) {
@@ -173,7 +173,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
             DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
           }
           DataBase.setDataBase(getTimeStamp(), "timenew");
-          eval('replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + getCounter("'+room+'counter") + "회 기록됨")');
+          replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + getCounter("counter") + "회 기록됨");
           loadCounter("counter", "rbackup")
           setCounter("counter")
           replier.reply("초기화 성공");
@@ -284,7 +284,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
     }
     if (msg.trim() == "!채팅카운터") {
-      eval('replier.reply(DataBase.getDataBase("' + room + 'timenew") + " ~\n\n" + getCounter("counter") + "회")')
+      replier.reply(DataBase.getDataBase("timenew") + " ~\n\n" + getCounter("counter") + "회")
     }
     /*
          if (msg == "!카운트") {
@@ -323,7 +323,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
           icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
           var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
-                  
+                  
           replier.reply("안녕하세요 " + sender + "님, 자유로운 컴퓨터 커뮤니티 컴퓨톡에 오신 것을 환영합니다.\n<!명령어>로 명령어를, <!공지>로 공지를, <!호출?>로 호출기능의 도움말을 확인하세요.\n당신의 호출코드는 [" + n + "]입니다.")
         }
       }
@@ -441,7 +441,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         ilist.push(inick[i]);
         ilist.push("\n");
       }
-      rep = ilist.join([separator = '']);      
+      rep = ilist.join([separator = '']);      
       replier.reply("호출코드 목록\n▼전체보기 클릭▼\n​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​\n" + rep);
     }
 
