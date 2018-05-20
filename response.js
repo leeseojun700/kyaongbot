@@ -82,7 +82,7 @@ function wiki(query) {
 const UPDATE = {};
 UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
   try { //사실, 나도 어디서 긁어와서 이곳저곳에서 사용하는 거임
-    var file = new java.io.File(sdcard + "/kaltalkbot/response.js");
+    var file = new java.io.File(sdcard + "/kbot/response.js");
     var fos = new java.io.FileOutputStream(file);
     var str = new java.lang.String(msg);
     fos.write(str.getBytes());
