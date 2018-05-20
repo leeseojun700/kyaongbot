@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var updatecode = "1909"
+var updatecode = "1915"
 var error = false;
 var first = 0;
 const count = {};
@@ -193,7 +193,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         }
         if (msg == "!리로드") {
           for (var i = 0; saveArray.length > i; i++) { //배열명 배열 안의 변수마다 반복
-          DataBase.setDataBase(JSON.stringify(saveArray[i]), eval(saveArray[i])); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
+          DataBase.setDataBase(JSON.stringify(eval(saveArray[i])), saveArray[i]); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
           }
           DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
           Api.reload();
@@ -204,7 +204,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
           replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
           for (var i = 0; saveArray.length > i; i++) { //배열명 배열 안의 변수마다 반복
-          DataBase.setDataBase(JSON.stringify(saveArray[i]), eval(saveArray[i])); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
+          DataBase.setDataBase(JSON.stringify(eval(saveArray[i])), saveArray[i]); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
           }
           DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
           Api.reload();
