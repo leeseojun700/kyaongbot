@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var updatecode = "1941"
+var updatecode = "1953"
 var error = false;
 var first = 0;
 const count = {};
@@ -102,7 +102,7 @@ var notwords = ["도시바", "에이씨벨", "쉬바나", "화염병"]
 var saveArray = ["icode", "inick", "call", "caller"] //*******저장할 배열의 이름!*******
 DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
 for (var i = 0; saveArray.length > i; i++) {
-  eval("if (" + saveArray[i] + " == undefined) " + saveArray[i] + " = []")
+  eval("if (" + saveArray[i] + " === undefined) " + saveArray[i] + " = []")
 }
 
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
