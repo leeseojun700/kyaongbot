@@ -34,7 +34,6 @@ catch (e) {
         first = 1;
     }
 }
-}
 function getTimeStamp() {
   var d = new Date();
   var s =
