@@ -113,7 +113,7 @@ DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
   function setCounter(name) {
-    eval('DataBase.setDataBase(Number(DataBase.getDataBase(room)), ' + room + 'name'))
+    eval('DataBase.setDataBase(Number(DataBase.getDataBase(room)), ' + room + 'name)')
   }
 
   function getCounter(name) {
