@@ -236,6 +236,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
        if (msg.split(" ")[0] == "!상식등록") {
 	       knArray.push(msg.split("!상식등록 ")[1])
 	       replier.reply("등록 성공")
+	  }
         if (msg == "!프사") {
           var img = ImageDB.getProfileImage();
           replier.reply(img);
