@@ -13,7 +13,7 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-var updatecode = "0018"
+var updatecode = "0030"
 var error = false;
 var first = 0;
 const count = {};
@@ -233,7 +233,9 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           Api.reload();
           replier.reply("리로드 완료!")
         }
-       if (msg.split(" ")[0] == "!상식등록") knArray.push(msg.split("!상식등록 ")[1])
+       if (msg.split(" ")[0] == "!상식등록") {
+	       knArray.push(msg.split("!상식등록 ")[1])
+	       replier.reply("등록 성공")
         if (msg == "!프사") {
           var img = ImageDB.getProfileImage();
           replier.reply(img);
@@ -297,7 +299,7 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
       replier.reply(updatecode)
     }
    if (msg == "토막상식") {
-	replier.reply(knArray[Math.floor(Math.random() * length.knArray + 1)])
+	replier.reply(knArray[Math.floor(Math.random() * length.knArray)])
 }
     if (msg == "!호출코드 확인") {
       if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
