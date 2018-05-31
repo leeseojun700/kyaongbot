@@ -100,30 +100,11 @@ var admin = ["불여우", "AMD TR™", "rgb", "K'romium", "케이시", "DEBUG$MO
 var enkey = "thebestfirefoxintheworld"
 var words = ["쉬바", "쓰버", "10새", "10새기", "10새리", "10세리", "10쉐이", "10쉑", "10스", "10쌔", " 10쌔기", "10쎄", "10알", "10창", "10탱", "18것", "18넘", "18년", "18노", "18놈", "18뇬", "18럼", "18롬", "18새", "18새끼", "18색", "18세끼", "18세리", "18섹", "18쉑", "18스", "18아", "ㄱㅐ", "ㄲㅏ", "ㄲㅑ", "ㄲㅣ", "ㅅㅂㄹㅁ", "ㅅㅐ", "ㅆㅂㄹㅁ", "ㅆㅍ", "ㅆㅣ", "ㅆ앙", "凸", " 갈보", "갈보년", "같은년", "같은뇬", "개같은", "개구라", "개년", "개놈", "개뇬", "개대중", "개독", "개돼중", "개랄", "개보지", "개뻥", "개뿔", "개새", "개새기", "개새끼", "개새키", "개색기", "개색끼", "개색키", "개색히", "개섀끼", "개세", "개세끼", "개세이", "개소리", "개쑈", " 개쇳기", "개수작", "개쉐", "개쉐이", "개쉑", "개쉽", "개스끼", "개시키", "개십새기", " 개십새끼", "개쐑", "개씹", "개아들", "개자슥", "개자지", "개접", "개좆", "개좌식", "개허접", "걔새", "걔수작", "걔시끼", "걔시키", "걔썌", "걸레", "게색기", "게색끼", "광뇬", "구녕", "구라", "그년", "그새끼", "놈현", "뇬", "눈깔", "뉘미럴", "니귀미", "니기미", "니미", "니미랄", "니미럴", "니미씹", "니아배", "니아베", "니아비", "니어매", "니어메", "니어미", "닝기리", "닝기미", "대가리", "뎡신", "도라이", "돈놈", "돌아이", "돌은놈", "되질래", "뒈져", "뒈져라", "뒈진", "뒈진다", "뒈질", " 뒤질래", "등신", "디져라", "디진다", "디질래", "따식", "때놈", "또라이", "똘아이", "똘아이", "뙈놈", "뙤놈", "뙨넘", "뙨놈", "뚜쟁", "띠바", "띠발", "띠불", "띠팔", "메친넘", "메친놈", "미췬", " 미췬", "미친", "미친넘", "미친년", "미친놈", "미친새끼", "미친스까이", "미틴", "미틴넘", "미틴년", " 미틴놈", "바랄년", "뱅마", "뱅신", "벼엉신", "병쉰", "병신", "부랄", "부럴", "불알", "불할", "붕가", "뷰웅", "븅", "븅신", "빌어먹", "빙시", "빙신", "빠가", "빠구리", "빠굴", "빠큐", "뻐큐", "뻑큐", "뽁큐", "상넘이", "상놈을", "상놈의", "상놈이", "새갸", "새꺄", "새끼", "새새끼", "새키", "색끼", "생쑈", "세갸", "세꺄", "세끼", "섹스", "쇼하네", "쉐기", "쉐끼", "쉐리", "쉐에기", "쉐키", "쉑", "쉣", "쉨", "쉬발", "쉬밸", "쉬벌", "쉬뻘", "쉬펄", "쉽알", "스패킹", "스팽", "시궁창", "시끼", "시댕", "시뎅", "시랄", "시발", "시벌", "시부랄", "시부럴", "시부리", "시불", "시브랄", "시팍", "시팔", "시펄", "심발끈", "심탱", "십8", "십라", "십새", "십새끼", "십세", "십쉐", "십쉐이", "십스키", "십쌔", "십창", "십탱", "싶알", "싸가지", "싹아지", "쌉년", "쌍넘", "쌍년", "쌍놈", "쌍뇬", "쌔끼", " 쌕", "쌩쑈", "쌴년", "썅", "썅년", "썅놈", "썡쇼", "써벌", "썩을년", "썩을놈", "쎄꺄", "쎄엑", " 쒸벌", "쒸뻘", "쒸팔", "쒸펄", "쓰바", "쓰박", "쓰발", "쓰벌", "쓰팔", "씁새", "씁얼", "씌파", "씨8", " 씨끼", "씨댕", "씨뎅", "씨바", "씨바랄", "씨박", "씨발", "씨방", "씨방새", "씨방세", "씨밸", "씨뱅", "씨벌", "씨벨", "씨봉", "씨봉알", "씨부랄", "씨부럴", "씨부렁", "씨부리", "씨불", "씨붕", "씨브랄", " 씨빠", "씨빨", "씨뽀랄", "씨앙", "씨파", "씨팍", "씨팔", "씨펄", "씸년", "씸뇬", "씸새끼", "씹같", "씹년", "씹뇬", "씹보지", "씹새", "씹새기", "씹새끼", "씹새리", "씹세", "씹쉐", "씹스키", "씹쌔", "씹이", "씹자지", "씹질", "씹창", "씹탱", "씹퇭", "씹팔", "씹할", "씹헐", "아가리", "아갈이", "아갈통", "아구창", "아구통", "아굴", "얌마", "양년", "양놈", "엄창", "엠병", "여물통", "염병", "엿같", "옘병", "옘빙", "오입", "왜년", "왜놈", "욤병", "육갑", "은년", "을년", "이년", "이새끼", "이새키", "이스끼", "이스키", "임마", "자슥", "잡것", "잡넘", "잡년", "잡놈", "저년", "저새끼", "접년", "젖밥", "조까", "조까치", "조낸", "조또", "조랭", "조빠", "조쟁이", "조지냐", "조진다", "조찐", "  조질래", "존나", "존나게", "존니", "존만", " 존만한", "좀물", "좁년", "좆", "좁밥", "좃까", "좃또", "좃만", "좃밥", "좃이", "좃찐", "좆같", "좆까", "좆나", "좆또", "좆만", "좆밥", "좆이", "좆찐", "좇같", "좇이", "좌식", "주글", "주글래", "주데이", "주뎅", "주뎅이", "주둥아리", "주둥이", "주접", "주접떨", "죽고잡", "죽을래", "죽통", "쥐랄", "쥐롤", "쥬디", "지랄", "지럴", "지롤", "지미랄", "짜식", "짜아식", "쪼다", "쫍빱", "찌랄", "창녀", "캐년", "캐놈", "캐스끼", "캐스키", "캐시키", "탱구", "팔럼", "퍽큐", "호로", "호로놈", "호로새끼", "호로색", "호로쉑", "호로스까이", "호로스키", "후라들", "후래자식", "후레", "후뢰", "씨ㅋ발", "ㅆ1발", "씌발", "띠발", "띄발", "뛰발", "띠ㅋ발", "뉘뮈", "ㅅㅂ", "ㅆㅂ", "ㅂㅅ", "ㅄ", "ㅈㄹ", "좃", "좇", "시바", "바보", "멍청이", "쉬불", "쉬뿔", "ㅈㄴ"]
 var notwords = ["도시바", "에이씨벨", "쉬바나", "화염병"]
-var saveArray = ["icode", "inick", "call", "caller", "knArray"] //*******저장할 배열의 이름!*******
-if (DataBase.getDataBase("check") == 0) {
-  var icode = []
-  var inick = []
-  var call = []
-  var caller = []
-  DataBase.setDataBase(1, "check")
-}
 
 DataBase.setDataBase(JSON.stringify(saveArray), "saveArray");
 
 function response(room, msg, sender, isGroupChat, replier, ImageDB) {
   var timea = new Date().getTime(); //반응 속도 측정을 위한 시간 측정
-  function setCounter(name) {
-    DataBase.setDataBase(Number(DataBase.getDataBase(room)), name)
-  }
-
-  function getCounter(name) {
-    Number(DataBase.getDataBase(room)) - Number(DataBase.getDataBase(name))
-  }
-
-  function loadCounter(from, to) {
-    DataBase.setDataBase(Number(DataBase.getDataBase(from)), to)
-  }
   try {
     if (room == "불여우") {
       if (msg == "!프사갱신") {
@@ -169,43 +150,10 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
     if (admin.indexOf(sender) > -1) {
       if (admin.indexOf(sender) > -1) {
 
-        if (msg.trim() == "!채팅카운터 리셋") {
-          if (DataBase.getDataBase("timenew") != null) {
-            DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
-          }
-          DataBase.setDataBase(getTimeStamp(), "timenew");
-          replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + getCounter("counter") + "회 기록됨");
-          loadCounter("counter", "rbackup")
-          setCounter("counter")
-          replier.reply("초기화 성공");
-        }
-        /*
-         if (msg.trim() == "!채팅카운터 리셋") {
-           if (DataBase.getDataBase("timenew") != null) {
-             DataBase.setDataBase(DataBase.getDataBase("timenew"), "timeold")
-           }
-           DataBase.setDataBase(getTimeStamp(), "timenew");
-           replier.reply(DataBase.getDataBase("timeold") + "\n~\n" + DataBase.getDataBase("timenew") + "\n\n총 채팅 수 " + Number(DataBase.getDataBase(room)) + "회 기록됨");
-           DataBase.setDataBase(Number(DataBase.getDataBase(room)), "rbackup");
-           DataBase.setDataBase(0, room);
-           replier.reply("초기화 성공");
-         }*/
         if (msg == "!체크") {
          DataBase.setDataBase(0, "check") 
         }
-        if (msg.trim() == "!채팅카운터 백업") {
-          DataBase.setDataBase(DataBase.getDataBase("timenew"), "timetemp");
-          DataBase.setDataBase(DataBase.getDataBase("timeold"), "timenew");
-          DataBase.setDataBase(DataBase.getDataBase("timetemp"), "timeold");
-          loadCounter("counter", "rtemp")
-          loadCounter("rbackup", "counter")
-          loadCounter("rtemp", "rbackup")
-          replier.reply("백업이 완료되었습니다.\n기존 시점은 " + DataBase.getDataBase("timeold") + ",\n백업 시점은 " + DataBase.getDataBase("timenew") + " 입니다.");
-        }
         if (msg == "!리로드") {
-          for (var i = 0; saveArray.length > i; i++) { //배열명 배열 안의 변수마다 반복
-            eval("DataBase.setDataBase(JSON.stringify(" + saveArray[i] + "), saveArray[i])"); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
-          }
           Api.reload();
           replier.reply("리로드 완료!")
         }
@@ -213,9 +161,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           replier.reply("다운 중...")
           UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
           replier.reply("업데이트 코멘트(수정자가 등록함)\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
-          for (var i = 0; saveArray.length > i; i++) { //배열명 배열 안의 변수마다 반복
-            eval("DataBase.setDataBase(JSON.stringify(" + saveArray[i] + "), saveArray[i])"); //배열명(eval로 로드)마다 배열을 합친 덩어리를 값으로 DB에 저장
-          }
           Api.reload();
           replier.reply("리로드 완료!")
           if (error == false) {
@@ -225,10 +170,6 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
           }
         }
         if (msg == "!예비업데이트") {
-          Api.reload();
-          replier.reply("리로드 완료!")
-        }
-        if (msg == "!예비리로드") {
           UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
           Api.reload();
           replier.reply("리로드 완료!")
@@ -272,187 +213,15 @@ function response(room, msg, sender, isGroupChat, replier, ImageDB) {
         replier.reply("관리자가 아닙니다.")
       }
     }
-    /*if (new Date().getDate() != DataBase.getDataBase("countday")) {
-          DataBase.setDataBase(Number(DataBase.getDataBase(daycounter)), "daycache");
-          replier.reply(ShortStamp1() + "\n지난 하루동안 올라온 채팅 수: " + Number(DataBase.getDataBase(daycounter)) + "개");
-          DataBase.setDataBase(0, daycounter);
-          DataBase.setDataBase(new Date().getDate(), "countday");
-        }
-        if (new Date().getHours() != DataBase.getDataBase("counthour")) {
-          DataBase.setDataBase(Number(DataBase.getDataBase(hourcounter)), "hourcache");
-          replier.reply("지난 한시간동안 올라온 채팅 수: " + Number(DataBase.getDataBase(hourcounter)) + "개");
-          DataBase.setDataBase(0, hourcounter);
-          DataBase.setDataBase(new Date().getHours(), "counthour");
-        }
- */
     if (msg.trim() == "!공지카운터") {
       replier.reply(count[room] + "/300\n캬옹봇의 챗은 계산하지 않음.")
     }
-    if (msg.trim() == "!채팅카운터") {
-      replier.reply(DataBase.getDataBase("timenew") + " ~\n\n" + getCounter("counter") + "회")
-    }
-    /*
-         if (msg == "!카운트") {
-           replier.reply("어제 하루동안 " + DataBase.getDataBase("daycache") + "개,\n지난 한시간동안 " + DataBase.getDataBase("hourcache") + "개\n의 채팅이 올라옴")
-         }
-         */
     if (msg == "!업뎃") {
       replier.reply(updatecode)
     }
-   if (msg == "토막상식") {
+    if (msg == "토막상식") {
 	replier.reply(knArray[Math.floor(Math.random() * length.knArray)])
-}
-    if (msg == "!호출코드 확인") {
-      if (inick.indexOf(sender) != -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
-        var tn1 = inick.indexOf(sender);
-        var tn2 = icode[tn1];
-        replier.reply(tn2);
-      } else {
-        var tcheck = false; //while 탈출용 변수
-        while (tcheck === false) { //while 값이 false일 동안
-
-          var n = Math.floor(Math.random() * 9000 + 1000); //랜덤 네자리수 생성
-          if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
-            inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
-            icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
-            replier.reply(sender + " (신규발급)\n" + n);
-            var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
-          }
-        }
-      }
     }
-    if (inick.indexOf(sender) == -1) { //식별코드-닉네임 배열 안에 전송자의 닉네임이 있는지 확인
-      var tcheck = false; //while 탈출용 변수
-      while (tcheck === false) { //while 값이 false일 동안
-
-        var n = Math.floor(Math.random() * 9000 + 1000); //랜덤 네자리수 생성
-        n += ""; //중요: 숫자->문자 형변환 (DB가 문자 타입!)
-        if (icode.indexOf(n) == -1) { //생성한 숫자가 기존 식별코드 배열 안에 있는지 확인
-          inick.push(sender); //식별코드-닉네임 배열 안에 전송자의 닉네임 추가
-          icode.push(n); //식별코드 배열 안에 전송자의 식별코드 추가
-          var tcheck = true; //없으면 tcheck 값을 true로 바꾸고 while문 탈출
-                  
-          replier.reply("안녕하세요 " + sender + "님, 자유로운 컴퓨터 커뮤니티 컴퓨톡에 오신 것을 환영합니다.\n<!명령어>로 명령어를, <!공지>로 공지를, <!호출?>로 호출기능의 도움말을 확인하세요.\n당신의 호출코드는 [" + n + "]입니다.")
-        }
-      }
-    }
-    if (msg == "!호출?") {
-      replier.reply("▼<!호출> 기능 도움말▼\n\n!호출 [닉네임]\n [닉네임] 님을 호출합니다.\n!코드호출 [호출코드]\n [호출코드]에 해당되는 사람을 호출합니다.\n!호출코드 확인\n 자신의 호출코드를 확인합니다.\n!코드변경 [1000~9999의 정수]\n 자신의 호출코드를 해당 수로 변경합니다.\n!호출코드 목록\n 전화번호부처럼 호출코드 목록을 출력합니다.")
-    }
-    if (msg.split(" ")[0] == "!코드변경") {
-      var to = msg.split("!코드변경 ")[1]
-      if (parseInt(to) < 10000 && parseInt(to) > 999) {
-        var x = inick.indexOf(sender);
-        var com = icode[x];
-        if (icode.indexOf(to) != -1) {
-          replier.reply("이미 사용중인 호출코드입니다.");
-        } else {
-          icode.splice(icode.indexOf(com), 1, to);
-          replier.reply("호출코드가 변경되었습니다.");
-        }
-      } else {
-        replier.reply("1000에서 9999까지의 숫자를 입력해 주십시오.");
-      }
-    }
-    loop:
-      if (msg.split(" ")[0] == "!호출") {
-        var com = msg.split("!호출 ")[1]
-        if (call.indexOf(com) != -1 && caller.indexOf(sender) != -1) {
-
-          var position1 = new Array();
-          var pos1 = call.indexOf(com);
-          while (pos1 > -1) {
-            position1.push(pos1);
-            pos = call.indexOf(com, pos1);
-          }
-          var position2 = new Array();
-          var pos2 = caller.indexOf(sender);
-          while (pos2 > -1) {
-            position2.push(pos2);
-            pos = caller.indexOf(com, pos2);
-          }
-
-          let tempArr = [];
-          let uniqueArr = [];
-          for (let i of position1) { // 첫번째 배열을 반복하면서 
-            tempArr[i] = i; // 각 값에 따른 인덱스에 해당 값을 저장
-          } // 이렇게하면 tempArr 의 1, 4, 5, ~ 99, 100 번째 인덱스에 값이 저장되고
-          for (let i of position2) { // 두번째 배열을 반복하면서
-            if (tempArr[i] != -1) {
-              replier.reply("이미 호출한 상대입니다.")
-              break loop; // tempArr의 i 인덱스에 값이 있는지 확인하고 있으면 loop loop를 break
-            }
-          }
-        }
-        if (inick.indexOf(com) != -1) {
-          call.push(com)
-          caller.push(sender)
-          replier.reply("상대를 호출했습니다.")
-        } else {
-          replier.reply("상대의 호출코드가 등록되지 않았습니다.")
-        }
-      }
-    loop:
-
-      if (msg.split(" ")[0] == "!코드호출") {
-        var com = msg.split("!코드호출 ")[1]
-        var x = icode.indexOf(com)
-        var com = inick[x]
-        if (call.indexOf(com) != -1 && caller.indexOf(sender) != -1) {
-
-          var position1 = new Array();
-          var pos1 = call.indexOf(com);
-          while (pos1 > -1) {
-            position1.push(pos1);
-            pos = call.indexOf(com, pos1);
-          }
-          var position2 = new Array();
-          var pos2 = caller.indexOf(sender);
-
-          while (pos2 > -1) {
-            position2.push(pos2);
-            pos = caller.indexOf(com, pos2);
-          }
-
-          let tempArr = [];
-          let uniqueArr = [];
-          for (let i of position1) { // 첫번째 배열을 반복하면서 
-            tempArr[i] = i; // 각 값에 따른 인덱스에 해당 값을 저장
-          } // 이렇게하면 tempArr 의 1, 4, 5, ~ 99, 100 번째 인덱스에 값이 저장되고
-          for (let i of position2) { // 두번째 배열을 반복하면서
-            if (tempArr[i] != -1) {
-              replier.reply("이미 호출한 상대입니다.")
-              break loop; // tempArr의 i 인덱스에 값이 있는지 확인하고 있으면 loop loop를 break
-            }
-          }
-        }
-        if (inick.indexOf(com) != -1) {
-          call.push(com)
-          caller.push(sender)
-          replier.reply("상대를 호출했습니다.")
-        } else {
-          replier.reply("상대의 호출코드가 등록되지 않았습니다.")
-        }
-      }
-    //호출인식*******************
-    while (call.indexOf(sender) != -1) {
-      var x = call.indexOf(sender)
-      replier.reply(caller[x] + "님이 당신을 찾고 있습니다, " + call[x] + "님.")
-      call.splice(x, 1);
-      caller.splice(x, 1);
-    }
-    if (msg == "!호출코드 목록") {
-      ilist = [];
-      for (var i = 0; i < icode.length; i++) {
-        ilist.push(icode[i]);
-        ilist.push(" - ");
-        ilist.push(inick[i]);
-        ilist.push("\n");
-      }
-      rep = ilist.join([separator = '']);      
-      replier.reply("호출코드 목록\n▼전체보기 클릭▼\n​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​\n" + rep);
-    }
-
     if (msg == "!공지") {
       replier.reply(DataBase.getDataBase("공지"))
       count[room] = 0
