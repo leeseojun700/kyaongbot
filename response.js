@@ -386,7 +386,7 @@ if (msg.split(" ")[0] == "!상점") {
         break loop;
     }
     DB.p[scode].pt[scode] -= i;
-    DB.p[msg.split(" ")[1]]].pt[msg.split(" ")[1]] += a;
+    DB.p[msg.split(" ")[1]].pt[msg.split(" ")[1]] += a;
     replier.reply("[상점]\n" + sender + " → " + DB.inick[DB.icode.indexOf(msg.split(" ")[1])] + "\n+" + a + "cp (-" + i + "cp) (20% VAT)");
 }
 }
@@ -412,7 +412,7 @@ if (msg.split(" ")[0] == "!벌점") {
         break loop;
     }
     DB.p[scode].pt[scode] -= i;
-    DB.p[msg.split(" ")[1]]].pt[msg.split(" ")[1]] -= a;
+    DB.p[msg.split(" ")[1]].pt[msg.split(" ")[1]] -= a;
     replier.reply("[벌점]\n" + sender + " → " + DB.inick[DB.icode.indexOf(msg.split(" ")[1])] + "\n-" + a + "cp (-" + i + "cp) (20% VAT)");
 }
 }
