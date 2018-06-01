@@ -427,7 +427,7 @@ if (msg == "!코드목록") {
         ilist.push("\n");
       }
       rep = ilist.join([separator = '']);      
-      replier.reply("식별코드 목록\n▼전체보기 클릭▼\n\n" + blank + rep);
+      replier.reply("식별코드 목록\n▼전체보기 클릭▼" + blank + "\n" + rep);
     }
 
 
