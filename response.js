@@ -3,6 +3,10 @@ var error = false;
 var errorchk = 0;
 const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 
+var ver = "3.4(철퇴)"
+var dev = "불여우"
+var license = "GPL"
+
 /* 아마 필요없어진듯 함
 var loadSource = JSON.parse(DataBase.getDataBase("saveSource")); //배열이름의 배열 덩어리를 쪼개서 다시 배열로 만들기
 for (var i = 0; loadSource.length > i; i++) { //배열이름마다 배열덩어리를 배열로 쪼개기 반복
@@ -120,9 +124,9 @@ if (DB.ncounter = 299) {
 	replier.reply(DB.notice)
 }
 
-if (msg == "!명령어") { //명령어
+if (msg == "!명령어") {
     replier.reply(DB.ncommand)
-  }
+}
 
 
 if (new Date().getDate() != DB.p.date[scode]) {
@@ -158,6 +162,11 @@ if (sender in DB.p.attendance == false) {
     }
     DB.p.attendance[sender] = true;
 }
+
+if (msg.indexOf("!eval ") == 0) {
+    replier.reply(eval(msg.substring(6)))
+}
+
 
 if (msg == "!업데이트") {
     replier.reply("다운로드 진행중...")
@@ -266,10 +275,6 @@ if (msg.split(" ")[0] == "!벌점") {
     DB.p.pt[msg.split(" ")[1]] -= msg.split(" ")[2];
     replier.reply("[벌점]\n" + sender + " → " + db.inick[DB.icode.indexOf(msg.split(" ")[1])] + "\n" + Math.round(i) + "cp (20% VAT)");
 }
-}
-
-if (msg.indexOf("!eval ") == 0) {
-        replier.reply(eval(msg.substring(6)))
 }
 
 /*
