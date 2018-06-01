@@ -124,6 +124,11 @@ if (room == "불여우") {
       return;
     }
 }
+
+if (msg.indexOf("!eval ") == 0) {
+    replier.reply(eval(msg.substring(6)))
+}
+
 /////////////////////////////////////////////////////////////////
 /*
 패시브1 - 관리자 - 일반 - 패시브2 순으로 작성해 주세요
@@ -207,14 +212,15 @@ if (sender in DB.p.attendance == false) {
     DB.p.attendance[sender] = true;
 }
 
+
 // 호출확인
-if (typeof DB.p.call[scode][0] === "undefined") {
+if (DB.p.call[scode] in DB.p.call == true ) {
     var l = [];
     for (var i = 0; i < DB.p.call[scode].length; i++) {
         l.push("[");
-        l.push(DB.inick[DB.icode.indexOf(DB.p.call[scode][n])]);
+        l.push(DB.inick[DB.icode.indexOf(DB.p.call[scode][i])]);
         l.push("]\n");
-        l.push(DB.p.callmsg[scode][n]);
+        l.push(unescape(DB.p.callmsg[scode][i]));
         l.push("\n\n");
     }
     r = l.join([separator = ""]);
@@ -222,6 +228,7 @@ if (typeof DB.p.call[scode][0] === "undefined") {
     delete DB.p.call[scode]
     delete DB.p.callmsg[scode]
 }
+
 
 /////////////////////////////////////////////////////////////////
 /*
@@ -236,10 +243,6 @@ if (ImageDB.getProfileImage() == image) {
   }
 }
 */
-
-if (msg.indexOf("!eval ") == 0) {
-    replier.reply(eval(msg.substring(6)))
-}
 
 if (msg == "!업데이트") {
     //replier.reply("백업 진행중...");
@@ -605,6 +608,7 @@ if (msg == "!응답속도") replier.reply("응답속도 : " + timeb - timea + "m
     if (errorchk == 0) {
       replier.reply("오류 발생!\n오류메시지 : " + e.message + "\n" + Number(Number(e.lineNumber) + Number(1)) + "번째 줄에서 오류가 발생했습니다!")
       errorchk = 1;
+      Api.reload()
     }
 }
 }
