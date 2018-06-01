@@ -420,7 +420,7 @@ if (msg.split(" ")[0] == "!벌점") {
 // 식별코드 목록
 if (msg == "!코드목록") {
       var ilist = [];
-      for (var i = 0; i < icode.length; i++) {
+      for (var i = 0; i < DB.icode.length; i++) {
         ilist.push(DB.icode[i]);
         ilist.push(" - ");
         ilist.push(DB.inick[i]);
