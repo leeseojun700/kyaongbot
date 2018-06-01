@@ -235,7 +235,7 @@ if (DB.p[scode].call[scode] in DB.p[scode].call == true ) {
         l.push("\n\n");
     }
     r = l.join([separator = ""]);
-replier.reply("[" + sender + "]\n누군가 당신을 찾습니다.\n▼내용확인▼" + blank + \n + r);
+replier.reply("[" + sender + "]\n누군가 당신을 찾습니다.\n▼내용확인▼" + blank + "\n" + r);
     delete DB.p[scode].call[scode]
     delete DB.p[scode].callmsg[scode]
 }
