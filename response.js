@@ -245,8 +245,8 @@ if (ImageDB.getProfileImage() == image) {
 */
 
 if (msg == "!업데이트") {
-    //replier.reply("백업 진행중...");
-    //DataBase.setDataBase(JSON.stringify(DB), "DB");
+    replier.reply("백업 진행중...");
+    DataBase.setDataBase(JSON.stringify(DB), "DB");
     replier.reply("다운로드 진행중...");
     UPDATE.saveData(getHtml("https://raw.githubusercontent.com/chanoo104/kyaongbot/master/response.js"));
     replier.reply("[업데이트 코멘트]\n" + getHtml("https://github.com/chanoo104/kyaongbot/commit/master").split('<p class="commit-title">')[1].split("</p>")[0].trim());
@@ -261,8 +261,8 @@ if (msg == "!업데이트") {
     replier.reply(startmsg)
 }
 if (msg == "!리로드") {
-    //replier.reply("백업 진행중...");
-    //DataBase.setDataBase(JSON.stringify(DB), "DB");
+    replier.reply("백업 진행중...");
+    DataBase.setDataBase(JSON.stringify(DB), "DB");
     Api.reload();
     replier.reply("리로드 완료!");
     replier.reply(startmsg)
