@@ -119,7 +119,7 @@ var scode = DB.icode[DB.inick.indexOf(sender)];
 DB.p.pt[scode]++;
 DB.p.counter[scode]++;
 DB.ncounter++;
-if (DB.ncounter = 299) {
+if (DB.ncounter == 299) {
 	DB.ncounter = 0
 	replier.reply(DB.notice)
 }
@@ -129,9 +129,12 @@ if (msg == "!명령어") {
 }
 
 
+if (new Date().getDate() != DB.date) {
+    DB.attendance = 0;
+}
+DB.date = new Date().getDate();
 if (new Date().getDate() != DB.p.date[scode]) {
     DB.p.attendance[scode] = 0;
-    DB.attendance = 0;
     DB.p.warning[scode] -= 5
     if (DB.p.warning[scode] < 0) DB.p.warning[scode] = 0
 }
