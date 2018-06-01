@@ -138,7 +138,8 @@ if (DB.inick.indexOf(sender) == -1) {
     if (DB.icode.indexOf(n) == -1) {
       DB.inick.push(sender);
       DB.icode.push(String(n));
-      var ta = DB.inick
+      replier.reply(DB.inick)
+      var ta = String(DB.inick)
       var ta2 = []
       DB.inick.sort();
       replier.reply(ta)
