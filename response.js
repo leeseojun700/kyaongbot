@@ -1,6 +1,7 @@
 var updatecode = "1218"
 var error = false;
 var errorchk = 0;
+const sdcard = android.os.Environment.getExternalStorageDirectory().getAbsolutePath();
 
 /* 아마 필요없어진듯 함
 var loadSource = JSON.parse(DataBase.getDataBase("saveSource")); //배열이름의 배열 덩어리를 쪼개서 다시 배열로 만들기
@@ -21,6 +22,19 @@ var DB = JSON.parse(DataBase.getDataBase("DB"));
 /*이건 리로드기능 안에 대체해서 삽입
 DataBase.setDataBase(JSON.stringify(DB), "DB");
 */
+
+const UPDATE = {};
+UPDATE.saveData = function(msg) { //파일에 내용을 저장하는 함수
+  try {
+    var file = new java.io.File(sdcard + "/kbot/response.js");
+    var fos = new java.io.FileOutputStream(file);
+    var str = new java.lang.String(msg);
+    fos.write(str.getBytes());
+    fos.close();
+  } catch (e) {
+    Log.debug(e + " At:" + e.lineNumber);
+  }
+};
 
 function isInt(x) {
     return !isNaN(x) && eval(x).toString().length == parseInt(eval(x)).toString().length
