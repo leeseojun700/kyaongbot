@@ -139,7 +139,7 @@ if (DB.inick.indexOf(sender) == -1) {
       DB.inick.push(sender);
       DB.icode.push(String(n));
       replier.reply(DB.inick)
-      var ta = String(DB.inick)
+      const ta = DB.inick
       var ta2 = []
       DB.inick.sort();
       replier.reply(ta)
