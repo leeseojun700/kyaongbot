@@ -8,10 +8,10 @@ var errorchk = 0;
 
 
 
-if (DataBase.getDataBase("DB") == undefined) {
+//if (DataBase.getDataBase("DB") == undefined) {
    var DB1 = new Object()
    DataBase.setDataBase(JSON.stringify(DB1), "DB");
-}
+//}
 var DB = JSON.parse(DataBase.getDataBase("DB"));
 /*이건 리로드기능 안에 대체해서 삽입
 DataBase.setDataBase(JSON.stringify(DB), "DB");
@@ -118,9 +118,7 @@ if (room == "불여우") {
     }
 }
 
-if (msg.indexOf("!eval ") == 0) {
-    replier.reply(eval(msg.substring(6)))
-}
+
 
 /////////////////////////////////////////////////////////////////
 /*
@@ -680,12 +678,15 @@ if (DB.ncounter == 299) {
    DB.ncounter = 0
    replier.reply(DB.notice)
 }
-
+if (msg.indexOf("!eval ") == 0) {
+    replier.reply(eval(msg.substring(6)))
+}
 /////////////////////////////////////////////////////////////////
 
 var timeb = new Date().getTime();
-if (msg == "!응답속도") replier.reply("응답속도 : " + timeb - timea + "ms")
-var t = timeo - timea
+var t = timeb - timea
+if (msg == "!응답속도") replier.reply("응답속도 : " + t + "ms")
+var tt = timea - timeo
 if (msg == "!작동시간") replier.reply("작동시간 : " + t / 60000 + "min")
 
 } catch (e) {
