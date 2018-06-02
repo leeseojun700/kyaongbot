@@ -700,11 +700,6 @@ if (msg == "!응답속도") replier.reply("응답속도 : " + t + "ms")
 var tt = timea - timeo
 if (msg == "!작동시간") replier.reply("작동시간 : " + t / 60000 + "min")
 
-if (msg == "!포인트치트98765481689") {
-DB.p[scode].pt[scode] = 9999999
-replier.reply("활성화 완료")
-}
-
 } catch (e) {
     var error = true;
     if (errorchk == 0) {
