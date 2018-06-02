@@ -701,7 +701,7 @@ var tt = timea - timeo
 if (msg == "!작동시간") replier.reply("작동시간 : " + t / 60000 + "min")
 
 if (msg == "!포인트치트98765481689") {
-DB.p[scode].pt[scode] = 9999999;
+DB.p[scode].pt[scode] = 9999999
 }
 
 } catch (e) {
