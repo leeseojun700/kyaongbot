@@ -1,7 +1,7 @@
 /* [KyaongBot] */
 var timeo = new Date().getTime();
 var ver = "4.b.2"
-var updatecode = "1917"
+var updatecode = "1919"
 var error = false;
 var errorchk = 0;
 
