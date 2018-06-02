@@ -196,7 +196,8 @@ if (msg.indexOf("!evalf ") == 0) {
 DB.p[scode].pt[scode]++;
 DB.p[scode].counter[scode]++;
 
-
+if (msg == "!임시") DB.date = 2
+replier.reply(DB.date)
 // 날짜가 변함에 따라 광역 변수 초기화
 if (new Date().getDate() != DB.date) {
     DB.attendance = 0;
