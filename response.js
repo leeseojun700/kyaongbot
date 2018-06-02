@@ -196,8 +196,7 @@ if (msg.indexOf("!evalf ") == 0) {
 DB.p[scode].pt[scode]++;
 DB.p[scode].counter[scode]++;
 
-if (msg == "!임시") DB.date = 2
-replier.reply(DB.date)
+if (msg == "!날짜변경") DB.date = new Date().getDate() - 1
 // 날짜가 변함에 따라 광역 변수 초기화
 if (new Date().getDate() != DB.date) {
     DB.attendance = 0;
@@ -211,6 +210,8 @@ if (new Date().getDate() != DB.date) {
     for (var x = 0; x < DB.icode.length; x++) {
     	DB.p[DB.icode[x]].lottery[DB.icode[x]] = false;
     }
+    }
+    for (var x = 0; x < DB.icode.length; x++) {
 	DB.p[x].attendance[x] = 0;
     DB.p[x].warning[x] -= 5
     if (DB.p[x].warning[x] < 0) DB.p[x].warning[x] = 0
