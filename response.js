@@ -434,18 +434,11 @@ if (msg == "!코드목록") {
 loop: {
     if (msg.split(" ")[0] == "!호출") {
         var o = scode;
-        replier.reply(o);
         var s = msg.split(" ")[1];
-        replier.reply(s);
         var m = msg.substr(9);
-        replier.reply(m);
-        replier.reply(DB.p[s].call[s][0]);
         if (DB.p[s].call[s][0] == "0000") DB.p[s].call[s] = new Array();
         DB.p[s].call[s].push(o);
-        replier.reply(DB.p[s].call[s][0]);;
         DB.p[s].callmsg[s].push(escape(m));
-        replier.reply(DB.p[s].callmsg[s][0]);
-        replier.reply("상대를 호출했습니다.");
     }
 }
 /*호출
