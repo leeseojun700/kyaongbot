@@ -1,7 +1,7 @@
 /* [KyaongBot] */
 var timeo = new Date().getTime();
 var ver = "4.b.2"
-var updatecode = "1854"
+var updatecode = "1917"
 var error = false;
 var errorchk = 0;
 
@@ -166,6 +166,7 @@ var scode = DB.icode[DB.inick.indexOf(sender)]; // scode: 전송자의 식별코
       DB.p[scode].date[scode] = new Date().getDate() - 1
       DB.p[scode].rps[scode] = 0
       DB.p[scode].call[scode] = new Array()
+      DB.p[scode].call[scode][0] = "0000"
       DB.p[scode].callmsg[scode] = new Array()
       
       replier.reply("[신규 코드 등록]\n" + sender + " - " + scode)
@@ -223,7 +224,7 @@ if (sender in DB.p[scode].attendance == false) {
 
 
 // 호출확인
-if (DB.p[scode].call[scode] in DB.p[scode].call == true ) {
+if (DB.p[scode].call[scode][0] != "0000") {
     var l = [];
     for (var i = 0; i < DB.p[scode].call[scode].length; i++) {
         l.push("[");
@@ -237,10 +238,9 @@ if (DB.p[scode].call[scode] in DB.p[scode].call == true ) {
     delete DB.p[scode].call[scode]
     delete DB.p[scode].callmsg[scode]
     DB.p[scode].call[scode] = new Array();
+    DB.p[scode].call[scode][0] = "0000"
     DB.p[scode].callmsg[scode] = new Array();
 }
-
-
 /////////////////////////////////////////////////////////////////
 /*
 var image = DataBase.getDataBase("image")
@@ -430,8 +430,25 @@ if (msg == "!코드목록") {
       replier.reply("식별코드 목록\n▼전체보기 클릭▼" + blank + "\n" + rep);
     }
 
-
 //호출
+loop: {
+    if (msg.split(" ")[0] == "!호출") {
+        var o = scode;
+        replier.reply(o);
+        var s = msg.split(" ")[1];
+        replier.reply(s);
+        var m = msg.substr(9);
+        replier.reply(m);
+        replier.reply(DB.p[s].call[s][0]);
+        if (DB.p[s].call[s][0] == "0000") DB.p[s].call[s] = new Array();
+        DB.p[s].call[s].push(o);
+        replier.reply(DB.p[s].call[s][0]);;
+        DB.p[s].callmsg[s].push(escape(m));
+        replier.reply(DB.p[s].callmsg[s][0]);
+        replier.reply("상대를 호출했습니다.");
+    }
+}
+/*호출
 loop: {
 if (msg.split(" ")[0] == "!호출") {
     if (DB.icode.indexOf(msg.split(" ")[1]) == -1) {
@@ -446,11 +463,12 @@ if (msg.split(" ")[0] == "!호출") {
     }
     var m = msg.substr(9)
     DB.p[s].call[s].push(o)
+    replier.reply(DB.p[s].call[s][0])
     DB.p[s].callmsg[s].push(escape(m))
     replier.reply("상대를 호출했습니다.")
 }
 }
-
+*/
 // 가위바위보
 loop: {
 if (msg.split(" ")[0] == "!가위") {
