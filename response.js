@@ -501,7 +501,7 @@ loop: {
 if (msg.split(" ")[0] == "!가위") {
     var i = Number(msg.split(" ")[1]);
     if (isInt(i) == false) {
-        replier.reply("사용할 포인트를 자연수로 입력해 주세요.");
+        replier.reply("응 ");
         break loop;
     }
     if (i > 9 && i < 1001) {
