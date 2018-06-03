@@ -310,7 +310,7 @@ if (msg == "!확인") {
 }
 	
 if (msg == "!포인트치트") {
-    DB.p[scode].pt[scode]++;
+    DB.p[scode].pt[scode] = DB.p[scode].pt[scode] + 100;
     replier.reply("치트활성화!")
 }
 	
