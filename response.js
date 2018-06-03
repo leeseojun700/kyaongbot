@@ -308,6 +308,16 @@ if (msg == "!리로드") {
 if (msg == "!확인") {
     replier.reply(updatecode)
 }
+	
+if (msg == "!포인트치트") {
+    DB.p[scode].pt[scode]++;
+    replier.reply("치트활성화!")
+}
+	
+if (msg == "!욕설치트") {
+    DB.p[scode].warning[scode]--;
+    replier.reply("치트활성화!")
+}
 
 if (msg == "!DB삭제") {
 	var DB1= new Object();
