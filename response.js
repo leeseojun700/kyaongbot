@@ -5,7 +5,7 @@ var updatecode = "775"
 var error = false;
 var errorchk = 0;
 
-
+// AMD TR™은 아조시가 아니다
 
 
 //if (DataBase.getDataBase("DB") == undefined) {
